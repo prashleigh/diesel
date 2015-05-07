@@ -1,0 +1,18 @@
+/* App-specific styles */
+
+#wall-google-doc {
+  -ms-zoom: 3;
+  -ms-transform-origin: 0 0;
+  -moz-transform: scale(3);
+  -moz-transform-origin: 0px 50px;
+  -o-transform: scale(3);
+  -o-transform-origin: 0px 50px;
+  -webkit-transform: scale(3);
+  -webkit-transform-origin: 0 0;
+}
+
+#wall-google-doc {
+  width: 1280px;
+  height: 1080px;
+  overflow: hidden;
+}

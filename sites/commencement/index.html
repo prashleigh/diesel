@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width, user-scalable=no"></meta>
+    
+    <title>Commencement 2015 Talk</title>
+  
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  
+    <link rel="stylesheet" type="text/css" href="../../style/main.css" />
+    <link rel="stylesheet" type="text/css" href="main.css" />
+    <script data-main="../../scripts/main" src="../../scripts/require.js"></script>
+  </head>
+  <body class="crossfade">
+    <div id="slideshow" class="highlight" data-timecontainer="seq" data-repeatcount="indefinite"
+      data-timeaction="intrinsic" data-navigation="hash">
+      
+      <div id="activity-1" data-timecontainer="par" data-onbegin="DSL.config.slideEvents['activity-1'].onbegin()">
+        
+        <!-- Show on wall only -->
+        
+        <div data-timecontainer="par" data-role="wall"  style="background-color: #ddd" class="r1 c1 w4 h3">
+          <div class="c1 r1 w4 h3 textpanel"><span>Time to transcribe</span></div>
+        </div>
+        
+        <!-- Show on yet_another_monitor only -->
+        
+        <iframe data-role="audience" class="fullheight" src="http://goo.gl/forms/fp1lr7cEPJ" id="google-form" style="width: 100%; overflow: scroll; position: absolute; top: 0;">
+          Sorry, this doesn't seem to be working on your phone. Turn to your neighbour and try theirs instead ...
+        </iframe>
+      </div>
+      
+      <div id="activity-2" data-timecontainer="par" data-onbegin="DSL.config.slideEvents['activity-2'].onbegin()">
+        
+        <!-- Show on wall only -->
+        
+        <div data-timecontainer="par" data-role="wall" style="background-color: #ddd">
+          <div class="c1 r1 w1 h1 textpanel"><span>Image 1 goes here</span></div>
+          <div class="c1 r2 w1 h2 textpanel" id="results1" style="background-color: red">
+            <span>Text</span>
+          </div>
+          <div class="c2 r1 w1 h1 textpanel"><span>Image 2 goes here</span></div>
+          <div class="c2 r2 w1 h2 textpanel" id="results2" style="background-color: green">
+            <span>Text</span>
+          </div>
+          <div class="c3 r1 w1 h1 textpanel"><span>Image 3 goes here</span></div>
+          <div class="c4 r2 w1 h2 textpanel" id="results3" style="background-color: red">
+            <span>Text</span>
+          </div>
+        </div>
+      </div>
+  </body>
+</html>

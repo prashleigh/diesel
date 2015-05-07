@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Slide Nav</title>
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="../../style/bootstrap.min.css"> </link>
+  <!-- jQuery -->
+  <script src="../../scripts/jquery.js"></script>
+  <script src="../../scripts/require.js"></script>
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  <script>
+  
+    var DSL; 
+    
+    require.config({ baseUrl: '../../scripts' });
+    
+    $(function () {  
+      require(['DSL'], function(dsl) {
+        
+        DSL = dsl;
+
+        $('#dsl-navigation a').click(function () {
+          dsl.message.send('goto', 'all', this.id);
+        });
+      });
+    });
+    
+  </script>
+  <style>
+    body {
+      margin: 5%
+    }
+  </style>
+</head>
+
+<body>
+  <h1>DieSeL: A platform for a scholarly environment</h1>
+  <div class="list-group" id="dsl-navigation">
+    <a id="geometry" class="list-group-item"> Geometry </a>
+    <a id="timing" class="list-group-item"> Timing </a>
+    <a id="distributed-content" class="list-group-item"> Distributed content </a>
+    <a id="distributed-control" class="list-group-item"> Distributed control </a>
+    <!--
+    <a id="" class="list-group-item"> John Caserta </a>
+    <a id="" class="list-group-item"> Sheila Bonde </a>
+    <a id="" class="list-group-item"> Garibaldi </a>
+    <a id="" class="list-group-item"> BDR </a>
+    <a id="" class="list-group-item"> Collaboration </a>-->
+
+    <!-- Note that #4 - 7 are part of the distributed control demo -->
+  </div>
+</body>
+</html>

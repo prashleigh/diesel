@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width, user-scalable=no"></meta>
+    
+    <title>DieSeL demo</title>
+
+    <link rel="stylesheet" type="text/css" href="../../style/main.css" />
+    <link rel="stylesheet" type="text/css" href="main.css" />
+    <script data-main="../../scripts/main" src="../../scripts/require.js"></script>
+  </head>
+  <body class="crossfade">
+    <div id="slideshow" class="highlight" data-timecontainer="seq" data-repeatcount="indefinite"
+      data-timeaction="intrinsic" data-navigation="hash">
+      
+      <!--  Slide on geometry  -->
+      
+      <div id="geometry" data-timecontainer="par" style="background-color:black">
+        <div data-timecontainer="par" class="c1 r1 w4 h3" data-role="wall">
+          <div class="c1 r1 w1 h2" style="background-color: #f00">&nbsp;</div>
+          <div class="c2 r1 w1 h1" style="background-color: #FF7400">&nbsp;</div>
+          <div class="c3 r1 w1 h1" style="background-color: #099">&nbsp;</div>
+          <div class="c4 r1 w1 h1" style="background-color: #0c0">&nbsp;</div>
+          <!--<div class="c1 r2 w1 h1" style="background-color: #A64B00">&nbsp;</div>-->
+          <div class="c2 r2 w1 h1" style="background-color: #008500">&nbsp;</div>
+          <div class="c3 r2 w1 h1" style="background-color: #A60000">&nbsp;</div>
+          <div class="c4 r2 w1 h1" style="background-color: #006363">&nbsp;</div>
+          <div class="c1 r3 w1 h1" style="background-color: #5cc">&nbsp;</div>
+          <div class="c2 r3 w1 h1" style="background-color: #ff4040">&nbsp;</div>
+          <div class="c3 r3 w2 h1" style="background-color: #39E639">&nbsp;</div>
+          <!--<div class="c4 r3 w1 h1" style="background-color: #FF9640">&nbsp;</div>-->
+          <div class="c1 r1 w4 h3 textpanel"><span>Wall Geometry</span></div>
+        </div>
+        
+        <div data-role="secondary" data-timecontainer="par" class="fullscreen-textpanel"
+          data-onbegin="$('body').css('background-color', '#0c0');"
+          data-onend="$('body').css('background-color', 'white');">
+          <span>DSL</span>
+        </div>
+        
+        <div data-role="cart-1" data-timecontainer="par" class="fullscreen-textpanel"
+          data-onbegin="$('body').css('background-color', '#0c0');"
+          data-onend="$('body').css('background-color', 'white');">
+          <span>DSL</span>
+        </div>
+        
+        <div data-role="cart-2" data-timecontainer="par" class="fullscreen-textpanel"
+          data-onbegin="$('body').css('background-color', '#0c0');"
+          data-onend="$('body').css('background-color', 'white');">
+          <span>DSL</span>
+        </div>
+      </div>
+      
+
+      <!-- Slide on timing -->
+      
+      <div id="timing" data-timecontainer="par"
+          data-onbegin="$('body').css('background-color', 'black');"
+          data-onend="$('body').css('background-color', 'white');">
+        <div data-role="wall" class="c1 r1 w4 h3" style="background-color:black" 
+             data-timecontainer="par">
+          <!-- Colours -->
+          <div class="c1 r1 w1 h1" data-begin="3s" style="background-color: #f00">&nbsp;</div>
+          <div class="c2 r1 w1 h1" data-begin="8s" style="background-color: #FF7400">&nbsp;</div>
+          <div class="c3 r1 w1 h1" data-begin="7s" style="background-color: #099">&nbsp;</div>
+          <div class="c4 r1 w1 h1" data-begin="10s" style="background-color: #0c0">&nbsp;</div>
+          <div class="c1 r2 w1 h1" data-begin="2s" style="background-color: #A64B00">&nbsp;</div>
+          <div class="c2 r2 w1 h1" data-begin="6s" style="background-color: #008500">&nbsp;</div>
+          <div class="c3 r2 w1 h1" data-begin="12s" style="background-color: #A60000">&nbsp;</div>
+          <div class="c4 r2 w1 h1" data-begin="9s" style="background-color: #006363">&nbsp;</div>
+          <div class="c1 r3 w1 h1" data-begin="5s" style="background-color: #5cc">&nbsp;</div>
+          <div class="c2 r3 w1 h1" data-begin="1s" style="background-color: #ff4040">&nbsp;</div>
+          <div class="c3 r3 w2 h1" data-begin="11s" style="background-color: #39E639">&nbsp;</div>
+          <div class="c4 r3 w1 h1" data-begin="4s" style="background-color: #FF9640">&nbsp;</div>
+          <!-- Labels -->        
+          <div class="textpanel c1 r1 w1 h1" style="opacity:0.4"><span>3 secs</span></div>
+          <div class="textpanel c2 r1 w1 h1" style="opacity:0.4"><span>8 secs</span></div>
+          <div class="textpanel c3 r1 w1 h1" style="opacity:0.4"><span>7 secs</span></div>
+          <div class="textpanel c4 r1 w1 h1" style="opacity:0.4"><span>10 secs</span></div>
+          <div class="textpanel c1 r2 w1 h1" style="opacity:0.4"><span>2 secs</span></div>
+          <div class="textpanel c2 r2 w1 h1" style="opacity:0.4"><span>6 secs</span></div>
+          <div class="textpanel c3 r2 w1 h1" style="opacity:0.4"><span>12 secs</span></div>
+          <div class="textpanel c4 r2 w1 h1" style="opacity:0.4"><span>9 secs</span></div>
+          <div class="textpanel c1 r3 w1 h1" style="opacity:0.4"><span>5 secs</span></div>
+          <div class="textpanel c2 r3 w1 h1" style="opacity:0.4"><span>1 secs</span></div>
+          <div class="textpanel c3 r3 w1 h1" style="opacity:0.4"><span>11 secs</span></div>
+          <div class="textpanel c4 r3 w1 h1" style="opacity:0.4"><span>4 secs</span></div>
+  
+          <div class="c1 r1 w4 h3 textpanel"><span>Timing</span></div>
+        </div>
+      </div>
+      
+      <!--  Slide on distributed content  -->
+      
+      <div id="distributed-content" data-timecontainer="par" style="width: 100%">
+        <!-- The 100% width above is a kludge - otherwise is 0px x 0px on cart-1 -->
+        <div data-role="wall" class="c1 r1 w4 h3" style="background-color:black" data-timecontainer="par">
+         <!-- Colours -->
+         <div class="c1 r1 w1 h1" data-begin=".6s" style="background-color: #f00">&nbsp;</div>
+         <div class="c2 r1 w1 h1" data-begin="1.6s" style="background-color: #FF7400">&nbsp;</div>
+         <div class="c3 r1 w1 h1" data-begin="1.4s" style="background-color: #099">&nbsp;</div>
+         <div class="c4 r1 w1 h1" data-begin="2s" style="background-color: #0c0">&nbsp;</div>
+         <div class="c1 r2 w1 h1" data-begin=".4s" style="background-color: #A64B00">&nbsp;</div>
+         <div class="c2 r2 w1 h1" data-begin="1.2s" style="background-color: #008500">&nbsp;</div>
+         <div class="c3 r2 w1 h1" data-begin="2.4s" style="background-color: #A60000">&nbsp;</div>
+         <div class="c4 r2 w1 h1" data-begin="1.8s" style="background-color: #006363">&nbsp;</div>
+         <div class="c1 r3 w1 h1" data-begin="1s" style="background-color: #5cc">&nbsp;</div>
+         <div class="c2 r3 w1 h1" data-begin=".2s" style="background-color: #ff4040">&nbsp;</div>
+         <div class="c3 r3 w2 h1" data-begin="2.2s" style="background-color: #39E639">&nbsp;</div>
+         <div class="c4 r3 w1 h1" data-begin=".8s" style="background-color: #FF9640">&nbsp;</div>
+ 
+         <!-- Labels -->        
+         <div class="textpanel c1 r1 w1 h1" style="opacity:0.4"><span>wall</span></div>
+         <div class="textpanel c2 r1 w1 h1" style="opacity:0.4"><span>wall</span></div>
+         <div class="textpanel c3 r1 w1 h1" style="opacity:0.4"><span>wall</span></div>
+         <div class="textpanel c4 r1 w1 h1" style="opacity:0.4"><span>wall</span></div>
+         <div class="textpanel c1 r2 w1 h1" style="opacity:0.4"><span>wall</span></div>
+         <div class="textpanel c2 r2 w1 h1" style="opacity:0.4"><span>wall</span></div>
+         <div class="textpanel c3 r2 w1 h1" style="opacity:0.4"><span>wall</span></div>
+         <div class="textpanel c4 r2 w1 h1" style="opacity:0.4"><span>wall</span></div>
+         <div class="textpanel c1 r3 w1 h1" style="opacity:0.4"><span>wall</span></div>
+         <div class="textpanel c2 r3 w1 h1" style="opacity:0.4"><span>wall</span></div>
+         <div class="textpanel c3 r3 w1 h1" style="opacity:0.4"><span>wall</span></div>
+         <div class="textpanel c4 r3 w1 h1" style="opacity:0.4"><span>wall</span></div>
+ 
+         <div class="c1 r1 w4 h3 textpanel">Distributed content across displays and devices</div>
+        </div>
+        
+        <div data-role="secondary" data-timecontainer="par" class="fullscreen-textpanel"
+          data-onbegin="$('body').css('background-color', '#ff4040');"
+          data-onend="$('body').css('background-color', 'white');">
+          <span>Mobile view</span>
+        </div>
+        
+        <div data-role="cart-1" data-timecontainer="par" class="fullscreen-textpanel"
+          data-onbegin="$('body').css('background-color', '#0c0');"
+          data-onend="$('body').css('background-color', 'white');">
+          <span>Secondary display 1</span>
+        </div>
+        
+        <div data-role="cart-2" data-timecontainer="par" class="fullscreen-textpanel"
+          data-onbegin="$('body').css('background-color', '#ff9640');"
+          data-onend="$('body').css('background-color', 'white');">
+          <span>Secondary display 2</span>
+        </div>
+      </div>
+      
+      <!-- Distributed control -->
+      
+      <div id="distributed-control" data-timecontainer="par">
+        <div data-role="wall" data-timecontainer="par" 
+             class="r1 c1 w4 h3 textpanel distributed-control-background" 
+             style="background-color: white; color: black">
+          <span>Choose</span>
+        </div>
+        <div data-role="secondary" data-timecontainer="par" 
+          data-onbegin="this.style.zIndex = 1000000; $('body').css('background-color', 'black');"
+          data-onend="this.style.zIndex = 'auto'; $('body').css('background-color', 'white');"
+          class="fullscreen-textpanel"> <!--control-buttons-->
+          <span>
+            <p>Choose</p>
+            <span class="choice" style="color: #ff7400">&#x2588;</span>
+            <span class="choice" style="color: #f00">&#x2588;</span>
+            <span class="choice" style="color: #099">&#x2588;</span>
+            <span class="choice" style="color: #0c0">&#x2588;</span>
+          </span>
+        </div>
+      </div>
+  </body>
+</html>

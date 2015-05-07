@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="initial-scale=1, width=device-width, user-scalable=no"></meta>
+
+  <title>DieSeL demo</title>
+
+  <link rel="stylesheet" type="text/css" href="../../style/main.css" />
+  <link rel="stylesheet" type="text/css" href="main.css" />
+  <script data-main="../../scripts/main" src="../../scripts/require.js"></script>
+  <style>
+  
+    
+    .mobile div {
+      width: 100%;
+      background: yellow;
+    }
+    
+    .mobile .mobile-fullscreen {
+      background: white;
+      position: absolute;
+      top: 0;
+      padding: 0 3%;
+      width: 97%;
+    }
+  
+  </style>
+</head>
+
+<body class="crossfade">
+  <div id="slideshow" class="highlight" data-timecontainer="par" data-repeatcount="indefinite" data-timeaction="intrinsic" data-navigation="hash">
+
+    <!-- NEW CONTENT - FIX THIS -->
+    
+    <div id="one" data-timecontainer="par"> <!-- Main slide container - it's parallel -->
+
+      <!-- Static content - stays throughout the slide -->
+<!--
+      <div class="c1 r1 w1 h1" style="background-color: #f00">&nbsp;</div>
+      <div class="c2 r1 w1 h1" style="background-color: #FF7400">&nbsp;</div>
+      <div class="c3 r1 w1 h1" style="background-color: #099">&nbsp;</div>
+      <div class="c4 r1 w1 h1" style="background-color: #0c0">&nbsp;</div>
+      <div class="c1 r2 w1 h1" style="background-color: #A64B00">&nbsp;</div>
+      <div class="c4 r2 w1 h1" style="background-color: #006363">&nbsp;</div>
+      <div class="c1 r3 w1 h1" style="background-color: #5cc">&nbsp;</div>
+      <div class="c4 r3 w1 h1" style="background-color: #FF9640">&nbsp;</div>-->
+
+      <!-- This is a slideshow-within-a-slide show; a sequence of elements in turn -->
+
+      <div id="s0" data-timecontainer="seq">
+        <div data-dur="5s" id="s1" data-onbegin="console.log('slide 1');" data-timecontainer="seq">
+          <div data-role="wall" class="c2 r2 w2 h2 image" style="background-image: url(Slide1.jpg)"></div>
+          <div data-role="mobile" class="mobile-fullscreen" style=""
+               data-onbegin="console.log('slide 1 mobile');">
+            <h1>The Digital Humanities in context of User-Centered Design (UCD).</h1>
+            <p>Many scholars and educators utilize a traditional close, critical reading analysis strategy that attempts to analyze a literary text from a particular lens - such as historical, feminist/gender, archetypal, marxist, etc. This close critical reading technique tries to provide a unique reading of the text and generate distinct interpretations. By applying the User-Centered Design process to literary analysis, a digital technology text analysis interface can be created to serve similar functionality. However, each designed Digital Humanities Literature Analysis Interface (DHLAI) transforms the previously purely mental lens into a material, definitive analysis framework. The digital literary analysis design methodology this paper introduces allows the analyst to generate an original, unambiguous virtual text-interaction lens.</p>
+          </div>
+        </div>
+        <div data-dur="5s" id="s2" data-onbegin="console.log('slide 1');" data-timecontainer="seq">
+          <div data-role="wall" class="c2 r2 w2 h2 image" style="background-image: url(Slide2.jpg)"></div>
+          <div data-role="mobile" class="mobile-fullscreen" style=""
+               data-onbegin="console.log('slide 2 mobile');">
+            <h1>Slide 2</h1>
+            <p>As an engineering student pursuing biomedical engineering device design, the design process fundamentally impacts my perspective of the surrounding world. Each resource forges the possibility for an artfully developed user interaction experience. Ingenuity, methodical design experimentation, and user feedback can transform malleable raw materials into a successful product or service. The user-centered design process is a universally applicable system, simply providing a framework in which to investigate, create, implement, and reevaluate an idea. The design process presented in this paper stems from the core ideology of the design process, the scientific method, and traditional literary analysis. Integrating these individual methodologies and renovating the product to derive a process uniquely tailored to the Digital Humanities generates a unifying, creativity-fostering process. Formalizing this process endeavors to add efficacy to Digital Humanities literature analysis results, assist in unifying an incredibly diverse field of study, and provide Digital Humanists with a process guide to expedite the literary analysis process and produce replicable results.</p>
+          </div>
+        </div>
+        <div data-dur="5s" id="s3" data-onbegin="console.log('slide 3');" data-timecontainer="seq">
+          <div data-role="wall" class="c2 r2 w2 h2 image" style="background-image: url(Slide3.jpg)"></div>
+          <div data-role="mobile" class="mobile-fullscreen" style=""
+               data-onbegin="console.log('slide 3 mobile');">
+            <h1>Slide 3</h1>
+            <p>Although this process is intended to help standardized a currently unsystematic, rapidly developing field, it is also intended to be an organic, adaptable methodology. One of the primary advantages of the Digital Humanities is the diversity of analysis perspectives stimulated by its interdisciplinary foundation. This process is intended to cultivate the innovation, divergent exploration, and collaboration already defining this field. An open organization structure is often necessary to produce truly inspired results. Just as engineering design parameters limit product possibilities while simultaneously spurring brilliant out-of-the-box solutions, the Digital Humanities Literary Analysis Methodology is intended to assist Digital Humanists in simplifying research steps that are often more complicated than necessary to encourage a more productive text analysis experience.</p>
+          </div>
+        </div>
+        <!--
+        <div data-dur="5s" id="s2a" class="c2 r2 w2 h2 image" style="background-image: url(Slide2.jpg)"
+             data-onbegin="console.log('slide 2');"></div>
+        <div data-dur="5s" id="s3" class="c2 r2 w2 h2 image" style="background-image: url(Slide3.jpg)"
+             data-onbegin="console.log('slide 3');"></div>
+        <div data-dur="5s" id="s4" class="c2 r2 w2 h2 image" style="background-image: url(Slide4.jpg)"
+             data-onbegin="console.log('slide 4');"></div>
+        <div data-dur="5s" id="s5" class="c2 r2 w2 h2 image" style="background-image: url(Slide5.jpg)"
+             data-onbegin="console.log('slide 5');"></div>
+        <div data-dur="5s" id="s6" class="c2 r2 w2 h2 image" style="background-image: url(Slide6.jpg)"
+             data-onbegin="console.log('slide 6');"></div>
+        <div data-dur="5s" id="s7" class="c2 r2 w2 h2 image" style="background-image: url(Slide7.jpg)"
+             data-onbegin="console.log('slide 7');"></div>
+        <div data-dur="5s" id="s8" class="c2 r2 w2 h2 image" style="background-image: url(Slide8.jpg)"
+             data-onbegin="console.log('slide 8');"></div>-->
+      </div>
+    </div>
+    
+    <!-- This content will go to the wall -->
+
+    <div data-timecontainer="par" data-role="wall" class="c1 r1 w4 h3">
+      <div class="c1 r1 w1 h1 image" style="background-image: url(Slide1.jpg)"></div>
+      <div class="c2 r1 w1 h1 image" style="background-image: url(Slide2.jpg)"></div>
+      <div class="c3 r1 w1 h1 image" style="background-image: url(Slide3.jpg)"></div>
+      <div class="c4 r1 w1 h1 image" style="background-image: url(Slide4.jpg)"></div>
+
+      <div class="c1 r2 w1 h1 image" style="background-image: url(Slide5.jpg)"></div>
+      <div class="c4 r2 w1 h1 image" style="background-image: url(Slide6.jpg)"></div>
+
+      <div class="c1 r3 w1 h1 image" style="background-image: url(Slide7.jpg)"></div>
+      <div class="c4 r3 w1 h1 image" style="background-image: url(Slide8.jpg)"></div>
+    </div>
+<!--
+    <div data-timecontainer="seq">
+      <div id="slide1">
+        <div class="c2 r2 w2 h2 image" style="background-image: url(Slide1.jpg)" data-role="wall"></div>
+        <div data-role="mobile">
+          <h1>The Digital Humanities in context of User-Centered Design (UCD).</h1>
+          <p>Content content</p>
+        </div>
+      </div>
+      <div id="slide2">
+        <div class="c2 r2 w2 h2 image" style="background-image: url(Slide2.jpg)" data-role="wall"></div>
+        <div data-role="mobile">
+          <h1>Content for slide 2</h1>
+          <p>Content content</p>
+        </div>
+      </div>
+    </div>
+  </div>-->
+</body>
+
+<!--
+
+
+<div data-timecontainer="par" data-role="mobile">
+          <h1>The Digital Humanities in context of User-Centered Design (UCD).</h1>
+          <p>Many scholars and educators utilize a traditional close, critical reading analysis strategy that attempts to analyze a literary text from a particular lens - such as historical, feminist/gender, archetypal, marxist, etc. This close critical reading technique tries to provide a unique reading of the text and generate distinct interpretations. By applying the User-Centered Design process to literary analysis, a digital technology text analysis interface can be created to serve similar functionality. However, each designed Digital Humanities Literature Analysis Interface (DHLAI) transforms the previously purely mental lens into a material, definitive analysis framework. The digital literary analysis design methodology this paper introduces allows the analyst to generate an original, unambiguous virtual text-interaction lens.</p>
+
+          <p>As an engineering student pursuing biomedical engineering device design, the design process fundamentally impacts my perspective of the surrounding world. Each resource forges the possibility for an artfully developed user interaction experience. Ingenuity, methodical design experimentation, and user feedback can transform malleable raw materials into a successful product or service. The user-centered design process is a universally applicable system, simply providing a framework in which to investigate, create, implement, and reevaluate an idea. The design process presented in this paper stems from the core ideology of the design process, the scientific method, and traditional literary analysis. Integrating these individual methodologies and renovating the product to derive a process uniquely tailored to the Digital Humanities generates a unifying, creativity-fostering process. Formalizing this process endeavors to add efficacy to Digital Humanities literature analysis results, assist in unifying an incredibly diverse field of study, and provide Digital Humanists with a process guide to expedite the literary analysis process and produce replicable results.</p>
+
+          <p>Although this process is intended to help standardized a currently unsystematic, rapidly developing field, it is also intended to be an organic, adaptable methodology. One of the primary advantages of the Digital Humanities is the diversity of analysis perspectives stimulated by its interdisciplinary foundation. This process is intended to cultivate the innovation, divergent exploration, and collaboration already defining this field. An open organization structure is often necessary to produce truly inspired results. Just as engineering design parameters limit product possibilities while simultaneously spurring brilliant out-of-the-box solutions, the Digital Humanities Literary Analysis Methodology is intended to assist Digital Humanists in simplifying research steps that are often more complicated than necessary to encourage a more productive text analysis experience.</p>
+        </div>
+
+
+-->
+
+</html>
