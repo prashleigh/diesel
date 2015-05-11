@@ -146,15 +146,16 @@ define(['message', 'page-transform', 'jquery', 'slide-factory', 'config.js'],
       
       var heading;
       
-      console.log(timeContainer.getNode());
-      
       if (timeContainer.getNode().title !== undefined &&
           timeContainer.getNode().title !== '') {
         heading = timeContainer.getNode().title;
       } else if (timeContainer.getNode().id !== undefined &&
                  timeContainer.getNode().id !== '') {
         heading = timeContainer.getNode().id;
-      } else { heading = null; }
+      } else { 
+        // heading = null; 
+        heading = 'unknown'; // TEMP
+      }
       
       if (heading !== null) {
 
@@ -167,7 +168,15 @@ define(['message', 'page-transform', 'jquery', 'slide-factory', 'config.js'],
         if (timeContainer.timeNodes !== undefined && 
             timeContainer.timeNodes.length > 0) {
           var subList = $('<ul></ul>');
+          
+          console.log("CHILD TIME NODES FOR ");
+          console.log(timeContainer.getNode());
+          console.log("IS/ARE");
+          console.log(timeContainer.timeNodes);
+          
           timeContainer.timeNodes.forEach(function(childTimeNode) {
+            console.log("GO TO SUBLIST ITEM");
+            console.log(childTimeNode);
             subList.append(getOnScreenNavigatorList(childTimeNode));
           });
           
@@ -284,6 +293,14 @@ define(['message', 'page-transform', 'jquery', 'slide-factory', 'config.js'],
     updateContainerClass(clientRole);
     loadjQueryPlugins(['jquery.fittext', 'jquery.qrcode.min']);
     setupOnloadEvents(getPageTransformFunction, clientRole, messageObject, CONFIG);
+    
+    // Register keyboard shortcut for nav (doesn't really belong here - move later)
+    
+    $(document).keypress(function(e) {
+      if (e.charCode === 110) {
+        addOnScreenNavigator();
+      }
+    });
     
     // DSL object's public members
     
