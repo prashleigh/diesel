@@ -36,24 +36,6 @@ body {
 .h2 { height: 2160px }
 .h3 { height: 3240px }
 
-.test .c1 { left: 0      }
-.test .c2 { left: 192px } /* 1921 */
-.test .c3 { left: 384px } /* 3842 */
-.test .c4 { left: 576px } /* 5763 */
-
-.test .r1 { top: 0      }
-.test .r2 { top: 109px } /* Should be 1081 */
-.test .r3 { top: 216px } /* Should be 2162 */
-
-.test .w1 { width: 192px } /* 1920 */
-.test .w2 { width: 384px } /* 3840 */
-.test .w3 { width: 576px }
-.test .w4 { width: 768px }
-
-.test .h1 { height: 108px } /* Should be 1080 */
-.test .h2 { height: 216px }
-.test .h3 { height: 324px }
-
 /* iframe exceptions
    iframes are slightly different from div's */
    

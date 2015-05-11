@@ -33,9 +33,8 @@ body * {
 /* If in test mode - 10% size */
 
 .test #slideshow {
-  width: 768px;
-  height: 324px;
-  margin: 0 auto;
+  transform: scale(0.1);
+  transform-origin: 0 0;
 }
 
 html, body.secondary {
