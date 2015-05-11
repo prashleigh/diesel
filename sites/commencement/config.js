@@ -78,7 +78,10 @@ define(['jquery'], function ($) {
           //  * https://developers.google.com/gdata/samples/spreadsheet_sample
           //  * https://developers.google.com/gdata/docs/json
           
-          var url = 'https://spreadsheets.google.com/feeds/list/1The7N7Oh9DPQoLBF95PmBELLyArL8KRhoCPMMQBZfRs/o3cghiv/public/full?alt=json-in-script&callback=?';
+          var url = 'https://spreadsheets.google.com/feeds/list/' + 
+                    '1The7N7Oh9DPQoLBF95PmBELLyArL8KRhoCPMMQBZfRs/o3cghiv/' + 
+                    'public/full?alt=json-in-script&callback=?';
+          
           $.getJSON(url).success(function(data) {
             data.feed.entry.forEach(function(formEntry) {
               console.log(formEntry);
@@ -89,6 +92,16 @@ define(['jquery'], function ($) {
           }).complete(function() {
               console.log('completed!'); 
           });
+        }
+      },
+      'treemap': {
+        'onbegin': function () {
+          var iframe = $('#treemap-iframe');
+          iframe.attr('src', iframe.attr('data-src'));
+        },
+        'onend': function () {
+          alert('gfdfg');
+          $('#treemap-iframe').attr('src', '');
         }
       }
     }
