@@ -134,7 +134,7 @@ define(['message', 'page-transform', 'jquery', 'slide-factory', 'config.js'],
   
   // Create a drop down menu for navigating (mostly for debugging)
   // At the non-container level, this filters for items with either id or a title attribute
-  // Otherwise, teh list gets very long ...
+  // Otherwise, the list gets very long ...
   
   function addOnScreenNavigator() {
     
@@ -144,7 +144,10 @@ define(['message', 'page-transform', 'jquery', 'slide-factory', 'config.js'],
     
     function getOnScreenNavigatorList(timeContainer) {
       
-      var heading;
+      var heading, containingListItem,
+          listContainer = $('<div></div>');
+      
+      // Get heading text
       
       if (timeContainer.getNode().title !== undefined &&
           timeContainer.getNode().title !== '') {
@@ -153,45 +156,48 @@ define(['message', 'page-transform', 'jquery', 'slide-factory', 'config.js'],
                  timeContainer.getNode().id !== '') {
         heading = timeContainer.getNode().id;
       } else { 
-        // heading = null; 
-        heading = 'unknown'; // TEMP
+        heading = null; 
       }
-      
+
+      // If the element has a heading text add to nav
+
       if (heading !== null) {
-
-        var containingListItem = $('<li>' + heading + '</li>');
-
+        containingListItem = $('<div>' + heading + '</div>');
         containingListItem.click(function () {
           timeContainer.parentNode.selectItem(timeContainer);
         });
-
-        if (timeContainer.timeNodes !== undefined && 
-            timeContainer.timeNodes.length > 0) {
-          var subList = $('<ul></ul>');
-          
-          console.log("CHILD TIME NODES FOR ");
-          console.log(timeContainer.getNode());
-          console.log("IS/ARE");
-          console.log(timeContainer.timeNodes);
-          
-          timeContainer.timeNodes.forEach(function(childTimeNode) {
-            console.log("GO TO SUBLIST ITEM");
-            console.log(childTimeNode);
-            subList.append(getOnScreenNavigatorList(childTimeNode));
-          });
-          
-          // If this is the 'root' TimeContainer, then just show the sublist
-          // Otherwise, append to listing
-          
-          if (timeContainer.parentNode !== undefined) {
-            containingListItem.append(subList);
-          } else {
-            containingListItem = subList;
-          }
-        }
-
-        return containingListItem;
+        listContainer.append(containingListItem);
       }
+
+      // Handle children
+
+      if (timeContainer.timeNodes !== undefined && 
+          timeContainer.timeNodes.length > 0) {
+        
+        var subList = $('<div></div>');
+        
+        console.log("CHILD TIME NODES FOR ");
+        console.log(timeContainer.getNode());
+        console.log("IS/ARE");
+        console.log(timeContainer.timeNodes);
+        
+        timeContainer.timeNodes.forEach(function(childTimeNode) {
+          console.log("GO TO SUBLIST ITEM");
+          console.log(childTimeNode);
+          subList.append(getOnScreenNavigatorList(childTimeNode));
+        });
+        
+        // If this is the 'root' TimeContainer, then just show the sublist
+        // Otherwise, append to listing
+        
+        if (timeContainer.parentNode !== undefined) {
+          listContainer.append(subList);
+        } else {
+          listContainer = subList;
+        }
+      }
+
+      return listContainer;
     }
     
     navContainer.append(getOnScreenNavigatorList(slideShowContainer));
