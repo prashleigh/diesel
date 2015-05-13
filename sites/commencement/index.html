@@ -206,55 +206,52 @@
       </div>
     </div>
     
-    <!-- Cat swamp map 1: historical -->
     
-    <div id="cat-swamp-map-1" data-timecontainer="par">
-      
-      <div data-timecontainer="par" data-role="wall">
-        <div class="r1 c1 w4 h3 image" data-role="wall" style="background-color: yellow">
-          <!-- map -->
+    <!-- xxx.style.transform = 'rotateZ(0deg)'; -->
+    
+    <!--  Cat Swamp map sequence  -->
+    
+    <div id="cat-swamp-map" data-timecontainer="par" title="Start Cat Swamp map sequence">
+      <div data-timecontainer="seq">
+        
+        <!-- Historical map -->
+        
+        <div id="cat-swamp-map-historical" data-timecontainer="par" title="&rarr; Historical map">
+          <!-- Wall view -->
+          <div class="r1 c1 w4 h3 image" data-role="wall" style="background-color: yellow"></div>
+          <!-- Audience -->
+          <div data-role="audience">
+            Historical map audience content
+          </div>
         </div>
-        <div class="r1 c3 w1 h1 image" data-role="wall" style="background-color: green" data-begin="3s">
-          <!-- swamp highlight -->
+        
+        <!-- contemporary map -->
+        
+        <div id="cat-swamp-map-contemporary" data-timecontainer="par" title="&rarr; Contemporary map">
+          <!-- Wall view -->
+          <div class="r1 c1 w4 h3 image" data-role="wall" style="background-color: orange"></div>
+          <!-- Audience -->
+          <div data-role="audience">
+            Contemporary map audience content
+          </div>
+        </div>
+        
+        <!-- satellite map -->
+        
+        <div id="cat-swamp-map-satellite" data-timecontainer="par" title="&rarr; Satellite map">
+          <!-- Wall view -->
+          <div class="r1 c1 w4 h3 image" data-role="wall" style="background-color: red"></div>
+          <!-- Audience -->
+          <div data-role="audience">
+            Satellite map audience content
+          </div>
         </div>
       </div>
-      <div data-timecontainer="par" data-role="audience">
-        Historical map details for audience
+      <div class="r1 c3 w1 h1 image" data-role="wall" style="background-color: green" data-begin="3s">
+        <!-- swamp highlight -->
       </div>
     </div>
     
-    <!-- Cat swamp map 2: contemporary -->
-    
-    <div id="cat-swamp-map-2" data-timecontainer="par">
-      <div data-timecontainer="par" data-role="wall">
-        <div class="r1 c1 w4 h3 image" data-role="wall" style="background-color: orange">
-          <!-- map -->
-        </div>
-        <div class="r1 c3 w1 h1 image" data-role="wall" style="background-color: green">
-          <!-- swamp highlight -->
-        </div>
-      </div>
-      <div data-timecontainer="par" data-role="audience">
-        Contemporary map details for audience
-      </div>
-    </div>
-    
-    <!-- Cat swamp map 3: satellite view -->
-    
-    <div id="cat-swamp-map-3" data-timecontainer="par">
-      <div data-timecontainer="par" data-role="wall">
-        <div class="r1 c1 w4 h3 image" data-role="wall" style="background-color: red">
-          <!-- map -->
-        </div>
-        <div class="r1 c3 w1 h1 image" data-role="wall" style="background-color: green">
-          <!-- swamp highlight -->
-        </div>
-      </div>
-      <div data-timecontainer="par" data-role="audience">
-        Satellite view details for audience
-      </div>
-    </div>
-
     <!-- Cat swamp treemap -->
 
     <div id="treemap" data-timecontainer="par">
