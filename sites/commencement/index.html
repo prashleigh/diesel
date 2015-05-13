@@ -96,8 +96,8 @@
 
     <div id="what-is" data-timecontainer="par">
       
-      <div data-role="wall" class="image c1 r1 w4 h3" 
-           style="background-image: url('images/NewHerbarium1.jpg'); background-size: cover;">
+      <div data-role="wall" class="image-cover c1 r1 w4 h3" 
+           style="background-image: url('images/NewHerbarium1.jpg')">
       </div>
       <div data-role="wall" class="textpanel c3 r2 w1 h1" 
            style="background-color: red; background-opacity: .5"
@@ -263,27 +263,33 @@
     <div id="treemap" data-timecontainer="par">
 
       <div data-timecontainer="par"
-           data-role="wall" 
            data-onbegin="DSL.config.slideEvents['treemap'].onbegin()">
         
         <div class="w4 h3 r1 c1" style="background-color: #aaa"
              data-role="wall"></div>
         
-        <!-- This will get replaced by a static image eventually -->
+        <!-- This iframe will get replaced by a static image eventually -->
         
         <iframe id="treemap-iframe" class="c1 r1 w2 h3" 
                 data-src="content/treemap"
                 data-role="wall"></iframe>
         
+        <!-- Map (stays up as we go through the plant examples) -->
         
-        <div class="w1 h2 r2 c4" style="background-color: yellow"></div>
+        <div class="w1 h2 r2 c4 image-cover" 
+             style="background-image: url(images/cat-swamp-historical-map.png)"
+             data-role="wall">
+          
+        </div>
+        
+        <!-- Plant close-ups -->
         
         <div data-timecontainer="seq">
-          <div id="tm1" data-timecontainer="par">
+          <div id="cat-swamp-specimen-1" data-timecontainer="par">
             <div class="w1 h2 r1 c3" style="background-color: red"></div>
             <div class="w1 h1 r1 c4" style="background-color: blue"></div>
           </div>
-          <div id="tm2" data-timecontainer="par">
+          <div id="cat-swamp-specimen-2" data-timecontainer="par">
             <div class="w1 h2 r1 c3" style="background-color: pink"></div>
             <div class="w1 h1 r1 c4" style="background-color: purple"></div>
           </div>
