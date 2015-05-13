@@ -68,9 +68,8 @@
       </div>
 
       <div data-timecontainer="par" data-role="audience">
-
+        <h1>Welcome to the Brown University Commencement talk 2015</h1>
       </div>
-
     </div>
 
     <!-- Patrick intro slide (TBD) -->
@@ -96,13 +95,20 @@
     <!-- What is an Herbarium? -->
 
     <div id="what-is" data-timecontainer="par">
-
-      <div data-timecontainer="par" data-role="wall">
-
+      
+      <div data-role="wall" class="image c1 r1 w4 h3" 
+           style="background-image: url('images/NewHerbarium1.jpg'); background-size: cover;">
       </div>
-
-      <div data-timecontainer="par" data-role="audience">
-
+      <div data-role="wall" class="textpanel c3 r2 w1 h1" 
+           style="background-color: red; background-opacity: .5"
+           data-onbegin="2s">
+        <span>So what is an Herbarium?</span>
+      </div>
+      
+      <div data-role="audience" data-timecontainer="par" class="fullscreen-textpanel"
+        data-onbegin="$('body').css('background-color', '#f55');"
+        data-onend="$('body').css('background-color', 'white');">
+        <span>Mobile view</span>
       </div>
     </div>
 
@@ -262,6 +268,8 @@
         
         <div class="w4 h3 r1 c1" style="background-color: #aaa"
              data-role="wall"></div>
+        
+        <!-- This will get replaced by a static image eventually -->
         
         <iframe id="treemap-iframe" class="c1 r1 w2 h3" 
                 data-src="content/treemap"
