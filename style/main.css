@@ -168,6 +168,11 @@ body.toss > div {
   background-position: center center;
 }
 
+.image-cover {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
 
 /* Text panel */
 
