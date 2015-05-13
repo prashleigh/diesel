@@ -159,11 +159,13 @@ define(['message', 'page-transform', 'jquery', 'slide-factory', 'config.js'],
         heading = null; 
       }
 
-      // If the element has a heading text add to nav
+      // If the element has a heading text, then add to nav
+      //  and attach a handler
 
       if (heading !== null) {
         containingListItem = $('<div>' + heading + '</div>');
         containingListItem.click(function () {
+        // TODO: I think it needs to selectItem for the parent of the parent as well ... test this
           timeContainer.parentNode.selectItem(timeContainer);
         });
         listContainer.append(containingListItem);
