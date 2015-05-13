@@ -25,11 +25,16 @@ define(['jquery'], function ($) {
       @param {Number} options.width Width of image in px
       @param {Number} options.height Height of image in px
       @return {String} URL of image
+      
+      
+      
+      
+      NOTE: THIS IS NOT WORKNG - see hard-coded PID
   */
 
   getImageUrl = function (id, options) {
     
-    var width  = (options !== undefined && options.width)  ? options.width  : 1000,
+    var width  = (options !== undefined && options.width)  ? options.width  : 1920,
         height = (options !== undefined && options.height) ? options.height : 0;
     
     return URL.image +
