@@ -9,7 +9,7 @@ console.log('* Entering main.js');
 
   'use strict';
   
-  require(['DSL', 'BDR'], function(dsl, dg, bdr) {
+  require(['DSL', 'BDR'], function(dsl, bdr) {
     DSL = dsl;
     BDR = bdr;
   });
