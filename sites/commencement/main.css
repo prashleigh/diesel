@@ -17,6 +17,14 @@
   font-family: MinionRoman;
 }
 
+/* Numbers for activity countdown */
+
+.countdown div[data-begin] {
+  color: white; 
+  opacity: .5; 
+  line-height: 3240px; 
+  font-size: 3000px;
+}
 
 /* This isn't working (yet) */
 

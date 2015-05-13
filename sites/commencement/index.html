@@ -160,14 +160,22 @@
 
     <div id="activity-1" data-timecontainer="par" data-onbegin="DSL.config.slideEvents['activity-1'].onbegin()">
 
-      <!-- Show on wall only -->
+      <!-- Wall view -->
 
-      <div data-timecontainer="par" data-role="wall" style="background-color: #ddd" class="r1 c1 w4 h3">
-        <div class="c1 r1 w4 h3 textpanel"><span>Time to transcribe</span>
+      <div data-timecontainer="par" data-role="wall" style="background-color: black" class="r1 c1 w4 h3 countdown">
+        <div class="c1 r1 w4 h3" data-begin="0s" data-end="10s" style=""><span>60</span></div>
+        <div class="c1 r1 w1 h1" data-begin="10s" data-end="20s"><span>50 seconds</span></div>
+        <div class="c1 r1 w1 h1" data-begin="20s" data-end="30s"><span>40 seconds</span></div>
+        <div class="c1 r1 w1 h1" data-begin="30s" data-end="40s"><span>30 seconds</span></div>
+        <div class="c1 r1 w1 h1" data-begin="40s" data-end="50s"><span>20 seconds</span></div>
+        <div class="c1 r1 w1 h1" data-begin="50s" data-end="60s"><span>10 seconds</span></div>
+        <div class="c2 r2 w2 h1 textpanel" data-begin="0s" data-end="60s">
+          <span>Transcribe!</span>
         </div>
+        <div class="c1 r1 w1 h1 textpanel" data-begin="60s"><span>Time's up!</span></div>
       </div>
 
-      <!-- Show on yet_another_monitor only -->
+      <!-- Audience view -->
 
       <iframe data-role="audience" class="fullheight" src="http://goo.gl/forms/fp1lr7cEPJ" id="google-form" style="width: 100%; overflow: scroll; position: absolute; top: 0;">
         Sorry, this doesn't seem to be working on your phone. Turn to your neighbour and try theirs instead ...
@@ -176,9 +184,9 @@
 
     <!-- Activity results -->
 
-    <div id="activity-2" data-timecontainer="par" data-onbegin="DSL.config.slideEvents['activity-2'].onbegin()">
+    <!--<div id="activity-2" data-timecontainer="par" data-onbegin="DSL.config.slideEvents['activity-2'].onbegin()">
 
-      <!-- Show on wall only -->
+      <!-\- Show on wall only -\->
 
       <div data-timecontainer="par" data-role="wall" style="background-color: #ddd">
         <div class="c1 r1 w1 h1 textpanel"><span>Image 1 goes here</span>
@@ -197,7 +205,7 @@
           <span>Text</span>
         </div>
       </div>
-    </div>
+    </div>-->
 
     <!-- Why a (digital) Herbarium? -->
 
