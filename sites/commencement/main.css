@@ -12,3 +12,14 @@
   font-weight: normal;
   font-style: normal;
 }
+
+#slideshow * {
+  font-family: MinionRoman;
+}
+
+
+/* This isn't working (yet) */
+
+.audience #slideshow *[data-role=audience][smil=active] {
+  width: 100%;
+}
