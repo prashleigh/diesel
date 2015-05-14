@@ -148,13 +148,14 @@ define(['message', 'page-transform', 'jquery', 'slide-factory', 'config.js'],
           listContainer = $('<div></div>');
       
       // Get heading text
-      
+      // To be listed in the TOC, a timeContainer element must have
+      // both an ID as well as a title
+      // (this passes over elements that have IDs just for styling purposes)
+
       if (timeContainer.getNode().title !== undefined &&
+          timeContainer.getNode().id !== undefined &&
           timeContainer.getNode().title !== '') {
         heading = timeContainer.getNode().title;
-      } else if (timeContainer.getNode().id !== undefined &&
-                 timeContainer.getNode().id !== '') {
-        heading = timeContainer.getNode().id;
       } else { 
         heading = null; 
       }
