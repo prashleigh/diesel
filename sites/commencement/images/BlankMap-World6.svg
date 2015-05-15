@@ -128,7 +128,7 @@
  */
 
 .us, .ca, .mx, .cu, .co, .uk, .fr, .it, .ch, .de, .se, .ru, .cn, .jp, .in, .np, .lk, .bd, .za, .rm, .au, .nz  {
-   fill: #a00;
+   fill: #dd0033;
 }
 
 
