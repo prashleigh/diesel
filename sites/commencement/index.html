@@ -279,7 +279,8 @@
     
     <!--  Cat Swamp map sequence  -->
     
-    <div id="cat-swamp-map" data-timecontainer="par" title="Start Cat Swamp map sequence">
+    <div id="cat-swamp-map" data-timecontainer="par" title="Start Cat Swamp map sequence"
+      data-onbegin="DSL.config.slideEvents['cat-swamp-map'].onbegin()">
       <div data-timecontainer="seq">
         
         <!-- Historical map -->
@@ -298,21 +299,28 @@
         
         <div id="cat-swamp-map-contemporary" data-timecontainer="par" title="&rarr; Contemporary map">
           <!-- Wall view -->
-          <div class="r1 c1 w4 h3 image" data-role="wall" style="background-image: url(images/cat-swamp-maps-higher-res/cat-swamp-maps_imageplacement_2.jpg);"></div>
+          <div id="cat-swamp-map-contemporary-2" class="r1 c1 w4 h3 image" 
+                data-role="wall" 
+                style="background-image: url(images/cat-swamp-maps-higher-res/cat-swamp-maps_imageplacement_2.jpg);"></div>
           <!-- Audience -->
           <div data-role="audience">
             Contemporary map audience content
           </div>
-        </div>
-        
-        <!-- satellite map -->
-        
-        <div id="cat-swamp-map-satellite" data-timecontainer="par" title="&rarr; Satellite map">
-          <!-- Wall view -->
-          <div class="r1 c1 w4 h3 image" data-role="wall" style="background-color: red"></div>
-          <!-- Audience -->
-          <div data-role="audience">
-            Satellite map audience content
+          
+          <div data-timecontainer="seq">
+            <!-- Empty element, then ...  -->
+            <div data-timecontainer="par" data-role="wall"></div>
+            <!-- satellite map -->
+            <div id="cat-swamp-map-satellite" data-timecontainer="par" title="&rarr; Satellite map"
+              data-onbegin="DSL.config.slideEvents['cat-swamp-map-satellite'].onbegin()">
+              <!-- Wall view -->
+              <div class="r1 c1 w4 h3 image" data-role="wall" style="background-color: red"
+                   data-begin="3s"></div>
+              <!-- Audience -->
+              <div data-role="audience">
+                Satellite map audience content
+              </div>
+            </div>
           </div>
         </div>
       </div>

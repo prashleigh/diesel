@@ -65,6 +65,18 @@ define(['jquery'], function ($) {
     },
 
     'slideEvents': {
+      'cat-swamp-map': {
+        'onbegin': function () {
+          if (DSL.clientRole === 'wall') {
+            $('body').css('background-color','black');
+          }
+        }
+      },
+      'cat-swamp-map-satellite': {
+        'onbegin': function () {
+          $('#cat-swamp-map-contemporary-2').css('transform','rotateX(45deg)');
+        }
+      },
       'activity-1': {
         'onbegin': function () {
           // $('#google-form').attr('src', 'http://www.google.com');
