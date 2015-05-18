@@ -74,7 +74,7 @@ define(['jquery'], function ($) {
       },
       'cat-swamp-map-satellite': {
         'onbegin': function () {
-          $('#cat-swamp-map-contemporary-2').css('transform','rotateX(45deg)');
+          // $('#cat-swamp-map-contemporary-2').css('transform','rotateX(45deg)');
         }
       },
       'activity-1': {
