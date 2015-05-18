@@ -119,10 +119,34 @@
 
     <!-- Timeline -->
 
-    <div id="timeline" data-timecontainer="par">
+    <div id="timeline" data-timecontainer="par" title="Start of timeline">
 
-      <div data-timecontainer="par" data-role="wall">
-
+      <div data-timecontainer="par" data-role="wall" class="r1 c1 w4 h3" style="background-color: black">
+        
+        <!-- Map -->
+        
+        <div data-timecontainer="par" class="r1 c1 h3 w1" 
+          style="background-image: url(images/New-England.svg); background-repeat: no-repeat; background-size: 700%; background-position: right top;"></div>
+        
+        <!-- Steps -->
+        
+        <div data-timecontainer="seq">
+          
+          <!-- First year -->
+          
+          <div id="first-year" title="First year" data-timecontainer="par">
+            <div class="r1 c4 h1 w1 textpanel"><span>1800</span></div>
+            <div class="r2 c4 h1 w1" style="background-color: red"></div>
+          </div>
+          
+          <!-- Second year -->
+          
+          <div id="second-year" title="Second year" data-timecontainer="par">
+            <div class="r1 c4 h1 w1 textpanel"><span>1801</span></div>
+            <div class="r2 c4 h1 w1" style="background-color: blue"></div>
+          </div>
+          
+        </div>
       </div>
 
       <div data-timecontainer="par" data-role="audience">
