@@ -225,7 +225,7 @@
         <div class="c2 r2 w2 h1 textpanel" data-begin="0s" data-end="60s">
           <span>Transcribe!</span>
         </div>
-        <div class="c1 r1 w1 h1 textpanel" data-begin="60s"><span>Time's up!</span></div>
+        <div class="c1 r2 w4 h1 textpanel" data-begin="60s"><span>Time's up!</span></div>
       </div>
 
       <!-- Audience view -->
@@ -264,7 +264,7 @@
     </div>
 
     <!-- Why a (digital) Herbarium? -->
-
+<!--
     <div id="why" data-timecontainer="par">
 
       <div data-timecontainer="par" data-role="wall">
@@ -275,19 +275,63 @@
 
       </div>
     </div>
+    -->
     
+    <div id="why" title="Why digitize?" 
+         data-timecontainer="par" 
+         data-onbegin="$('body').css('background-color', 'black');" 
+         data-onend="$('body').css('background-color', 'white');">
+      
+      <div data-role="wall" class="c1 r1 w4 h3" style="background-color:black" data-timecontainer="par" data-repeatcount="indefinite">
+        
+        <div class="c3 r2 w1 h1 textpanel" data-begin="0s">
+          <span>Why digitize?</span>
+        </div>
+        
+        <!-- Plant images -->
+        <!--
+        <div class="c1 r1 w1 h1 image" data-begin="1.5s" data-end="6.50813721s" style="background-image: url('http://bovary.iplantcollaborative.org/image_service/image/00-q6VBrwCsxqqB7wLn6QPn3T?resize=1920&amp;format=jpeg')">&nbsp;</div>
+        <div class="c2 r1 w1 h1 image" data-begin="10.4s" data-end="15.36830228s" style="background-image: url('http://bovary.iplantcollaborative.org/image_service/image/00-QoyCYotReGGmNwG7nPqtcC?resize=1920&amp;format=jpeg')">&nbsp;</div>
+        <div class="c3 r1 w1 h1 image" data-begin="11.9s" data-end="16.92777617s" style="background-image: url('http://bovary.iplantcollaborative.org/image_service/image/00-5BcgcmD6z2saEsa7PcFNee?resize=1920&amp;format=jpeg')">&nbsp;</div>
+        <div class="c4 r1 w1 h1 image" data-begin="18.2s" data-end="23.15218124s" style="background-image: url('http://bovary.iplantcollaborative.org/image_service/image/00-494bUjNBPv6vPckL2pjkKf?resize=1920&amp;format=jpeg')">&nbsp;</div>
+        <div class="c1 r2 w1 h1 image" data-begin="8.2s" data-end="13.24179567s" style="background-image: url('http://bovary.iplantcollaborative.org/image_service/image/00-4XdR2XGV7MQGAri4B2jXD3?resize=1920&amp;format=jpeg')">&nbsp;</div>
+        <div class="c2 r2 w1 h1 image" data-begin="2.7s" data-end="7.674084953s" style="background-image: url('http://bovary.iplantcollaborative.org/image_service/image/00-qoC9tK3DHzRuZBHkSBzVkR?resize=1920&format=jpeg')">&nbsp;</div>
+        <!-\-<div class="c3 r2 w1 h1 image" data-begin="13.1s" data-end="18.07324754s" style="background-image: url('http://bovary.iplantcollaborative.org/image_service/image/00-gaWXqmkEXUqw6hmq4xyUg3?resize=1920&format=jpeg')">&nbsp;</div>-\->
+        <div class="c4 r2 w1 h1 image" data-begin="4.7s" data-end="9.670151579s" style="background-image: url('http://bovary.iplantcollaborative.org/image_service/image/00-Bfc2pZuyFZFhjVKBrxZ6gC?resize=1920&amp;format=jpeg')">&nbsp;</div>
+        <div class="c1 r3 w1 h1 image" data-begin="10.5s" data-end="15.46064779s" style="background-image: url('http://bovary.iplantcollaborative.org/image_service/image/00-Ttr7rshnUANAPHWMzTFEja?resize=1920&amp;format=jpeg')">&nbsp;</div>
+        <div class="c2 r3 w1 h1 image" data-begin="1.0s" data-end="6.012925894s" style="background-image: url('http://bovary.iplantcollaborative.org/image_service/image/00-dd93QumYM7kSbH9Z9BESSR?resize=1920&amp;format=jpeg')">&nbsp;</div>
+        <div class="c3 r3 w1 h1 image" data-begin="13.0s" data-end="18.02936151s" style="background-image: url('http://bovary.iplantcollaborative.org/image_service/image/00-AmizZC8eiQBFZFfmrySZNX?resize=1920&amp;format=jpeg')">&nbsp;</div>
+        <div class="c4 r3 w1 h1 image" data-begin="15.2s" data-end="20.15369374s" style="background-image: url('http://bovary.iplantcollaborative.org/image_service/image/00-tP3K6CZ67GHgTWQvLex32V?resize=1920&amp;format=jpeg')">&nbsp;</div>
+        
+        <div class="c1 r1 w1 h1 image" data-begin="6.5s" style="background-image: url('http://bovary.iplantcollaborative.org/image_service/image/00-iqVKFsqqVQCsPadMfowFGj?resize=1920&amp;format=jpeg')">&nbsp;</div>
+        <div class="c2 r1 w1 h1 image" data-begin="15.4s" style="background-image: url('http://bovary.iplantcollaborative.org/image_service/image/00-RyQoLSNHe7tqY5zyCyBsJP?resize=1920&amp;format=jpeg')">&nbsp;</div>
+        <div class="c3 r1 w1 h1 image" data-begin="16.9s" style="background-image: url('http://bovary.iplantcollaborative.org/image_service/image/00-jptSYqXpdeR8uQHKRYk7z7?resize=1920&amp;format=jpeg')">&nbsp;</div>
+        <div class="c4 r1 w1 h1 image" data-begin="23.2s" style="background-image: url('http://bovary.iplantcollaborative.org/image_service/image/00-NBwwcvaH4QShBPHfKrVfCP?resize=1920&amp;format=jpeg')">&nbsp;</div>
+        <div class="c1 r2 w1 h1 image" data-begin="13.2s" style="background-image: url('http://bovary.iplantcollaborative.org/image_service/image/00-yzKwtKuKQZa3PKVRmVwdQj?resize=1920&amp;format=jpeg')">&nbsp;</div>
+        <!-\-<div class="c2 r2 w1 h1 image" data-begin="7.7s" data-end="12.67408495s" style="background-image: url('http://bovary.iplantcollaborative.org/image_service/image/00-RAia3NTAxStgP5R6PYvziP?resize=1920&format=jpeg')">&nbsp;</div>-\->
+        <!-\-<div class="c3 r2 w1 h1 image" data-begin="18.1s" data-end="23.07324754s" style="background-image: url('http://bovary.iplantcollaborative.org/image_service/image/00-5qJryjzqazXtj92pFjWzVP?resize=1920&format=jpeg')">&nbsp;</div>-\->
+        <div class="c4 r2 w1 h1 image" data-begin="9.7s" style="background-image: url('http://bovary.iplantcollaborative.org/image_service/image/00-aU7iwacgZYKnuBiz7MomWC?resize=1920&amp;format=jpeg')">&nbsp;</div>
+        <div class="c1 r3 w1 h1 image" data-begin="15.5s" style="background-image: url('http://bovary.iplantcollaborative.org/image_service/image/00-xURrvnkPvZPG4oqCQpaTZT?resize=1920&amp;format=jpeg')">&nbsp;</div>
+        <div class="c2 r3 w1 h1 image" data-begin="6.0s" style="background-image: url('http://bovary.iplantcollaborative.org/image_service/image/00-PFDf82ucLLLke6akP8PiEQ?resize=1920&amp;format=jpeg')">&nbsp;</div>
+        <div class="c3 r3 w1 h1 image" data-begin="18.0s" style="background-image: url('http://bovary.iplantcollaborative.org/image_service/image/00-Hgj3Eyy6ZXsdGQCm5jwFKX?resize=1920&amp;format=jpeg')">&nbsp;</div>
+        <div class="c4 r3 w1 h1 image" data-begin="20.2s" style="background-image: url('http://bovary.iplantcollaborative.org/image_service/image/00-nCXbbvDZgSRdKcgrQmpfGQ?resize=1920&amp;format=jpeg')">&nbsp;</div>
+        -->
+        <!--<div class="c1 r1 w4 h3 textpanel"><span>Timing</span></div>-->
+      </div>
+    </div>
     
     <!-- xxx.style.transform = 'rotateZ(0deg)'; -->
     
     <!--  Cat Swamp map sequence  -->
     
     <div id="cat-swamp-map" data-timecontainer="par" title="Start Cat Swamp map sequence"
-      data-onbegin="DSL.config.slideEvents['cat-swamp-map'].onbegin()">
+      >
       <div data-timecontainer="seq">
         
         <!-- Historical map -->
         
-        <div id="cat-swamp-map-historical" data-timecontainer="par" title="&rarr; Historical map">
+        <div id="cat-swamp-map-historical" data-timecontainer="par" title="&rarr; Historical map"
+          data-onbegin="DSL.config.slideEvents['cat-swamp-map'].onbegin()">
           <!-- Wall view -->
           <div class="r1 c1 w4 h3 image" data-role="wall" style="background-image: url(images/cat-swamp-maps-higher-res/cat-swamp-maps_imageplacement_1.jpg);"></div>
 
