@@ -31,3 +31,20 @@
 .audience #slideshow *[data-role=audience][smil=active] {
   width: 100%;
 }
+
+/* Timeline chart line */
+
+#timeline-count {
+  z-index: 100000;
+}
+
+#timeline-count path {
+  opacity:1;
+  fill:none;
+  stroke: red;
+  stroke-width:60;
+  stroke-linecap:butt;
+  stroke-linejoin:miter;
+  stroke-opacity:1
+}
+
