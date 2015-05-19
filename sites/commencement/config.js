@@ -19,6 +19,9 @@ define(['jquery'], function ($) {
 
     id: 'commencement2015',
     slideshowContainerId: 'slideshow',
+    setTimelineTo: function (offset) {
+      document.getElementById('timeline-count-line').style.strokeDashoffset = offset;
+    },
 
     /* Message handlers - what happens if message <messageID> is received by <recipientRole> ?
      *    messageHandlers.recipientRole.messageID = <callback>

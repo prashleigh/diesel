@@ -132,7 +132,20 @@
         <svg xmlns="http://www.w3.org/2000/svg" version="1.1" 
           class="c1 r2 w4 h2" id="timeline-count">
           
-          <path transform=""
+          <style>
+            
+            #timeline-count-line {
+              stroke-dasharray: 5360 10000;
+              stroke-dashoffset: 5330;
+              transition: stroke-dashoffset 2s ease-in-out;
+              /* 5360 total
+                  1910 = 2500              
+              */
+            }
+            
+          </style>
+          
+          <path id="timeline-count-line" transform=""
             d="M 0,2052
             234.146341463415,2050.79697014704
             468.292682926829,2047.66909252933
@@ -160,16 +173,17 @@
         
         <div data-timecontainer="seq">
           
-          <!-- 1st year -->
+          <!-- 1869 -->
          
-          <div id="y1869" title="&rarr; 1869" data-timecontainer="par">
+          <div id="y1869" title="&rarr; 1869" data-timecontainer="par"
+            data-onbegin="DSL.config.setTimelineTo(5360);">
             <div class="r1 c4 h1 w1 textpanel"><span style="font-size:4.25em;color:#e6dec4;">1869</span></div>
             <div class="r1 c3 h1 w1 textpanel"><span style="font-size:.80em;text-align:left;margin-left:7%;width:93%;">Stephen Thayer Olney donated his herbarium collection to Brown</span></div>
             <div class="r1 c2 h2 w1 image" style="background-image: url(images/timeline-images/StephenOlney.jpg);background-size:cover;"></div>
             <div class="r2 c4 h2 w1" style="background-image: url(images/timeline-images/PBRU00003272-Olney.jpg);background-size:cover;"></div>
           </div>
           
-          <!-- 2nd year -->
+          <!-- 1877 -->
                     
           <div id="y1877" title="&rarr; 1877" data-timecontainer="par">
             <div class="r1 c4 h1 w1 textpanel"><span style="font-size:4.25em;color:#e6dec4;">1877</span></div>
@@ -178,7 +192,7 @@
             <div class="r2 c4 h2 w1" style="background-image: url(images/timeline-images/PBRU00005342-Bailey.jpg);background-size:cover;"></div>
           </div>
           
-          <!-- 3rd year -->
+          <!-- 1879 -->
           
           <div id="y1879" title="&rarr; 1879" data-timecontainer="par">
             <div class="r1 c4 h1 w1 textpanel"><span style="font-size:4.25em;color:#e6dec4;">1879</span></div>
@@ -187,7 +201,7 @@
             <!-- <div class="r2 c4 h2 w1" style="background-image: url(images/timeline-images/);background-size:cover;"></div> -->
           </div>
 
-          <!-- 4th year -->
+          <!-- 1880 -->
           
           <div id="y1880" title="&rarr; 1880" data-timecontainer="par">
             <div class="r1 c4 h1 w1 textpanel"><span style="font-size:4.25em;color:#e6dec4;">1880</span></div>
@@ -196,7 +210,7 @@
             <!-- <div class="r2 c4 h2 w1" style="background-image: url(images/timeline-images/);background-size:cover;"></div> -->
           </div>
 
-          <!-- 5th year -->
+          <!-- 1881 -->
           
           <div id="y1881" title="&rarr; 1881" data-timecontainer="par">
             <div class="r1 c4 h1 w1 textpanel"><span style="font-size:4.25em;color:#e6dec4;">1881</span></div>
@@ -205,7 +219,7 @@
             <!-- <div class="r2 c4 h2 w1" style="background-image: url(images/timeline-images/);background-size:cover;"></div> -->
           </div>
 
-          <!-- 6th year -->
+          <!-- 1883 -->
 
           <div id="y1883" title="&rarr; 1883" data-timecontainer="par">
             <div class="r1 c4 h1 w1 textpanel"><span style="font-size:4.25em;color:#e6dec4;">1883</span></div>
@@ -214,7 +228,7 @@
             <!-- <div class="r2 c4 h2 w1" style="background-image: url(images/timeline-images/);background-size:cover;"></div> -->
           </div>
 
-          <!-- 7th year -->
+          <!-- 1890 -->
 
           <div id="y1890" title="&rarr; 1890" data-timecontainer="par">
             <div class="r1 c4 h1 w1 textpanel"><span style="font-size:4.25em;color:#e6dec4;">1890</span></div>
@@ -223,7 +237,7 @@
             <!-- <div class="r2 c4 h2 w1" style="background-image: url(images/timeline-images/);background-size:cover;"></div> -->
           </div>
 
-          <!-- 8th year -->
+          <!-- 1894 -->
 
           <div id="y1894" title="&rarr; 1894" data-timecontainer="par">
             <div class="r1 c4 h1 w1 textpanel"><span style="font-size:4.25em;color:#e6dec4;">1894</span></div>
@@ -232,7 +246,7 @@
             <!-- <div class="r2 c4 h2 w1" style="background-image: url(images/timeline-images/);background-size:cover;"></div> -->
           </div>
 
-          <!-- 9th year -->
+          <!-- 1895 -->
 
           <div id="y1895" title="&rarr; 1895" data-timecontainer="par">
             <div class="r1 c4 h1 w1 textpanel"><span style="font-size:4.25em;color:#e6dec4;">1895</span></div>
@@ -241,16 +255,18 @@
             <!-- <div class="r2 c4 h2 w1" style="background-image: url(images/timeline-images/);background-size:cover;"></div> -->
           </div>
 
-         <!-- 10th year -->
+         <!-- 1911 -->
 
-          <div id="y1911" title="&rarr; 1911" data-timecontainer="par">
+          <div id="y1911" title="&rarr; 1911" data-timecontainer="par"
+            data-onbegin="DSL.config.setTimelineTo(2500);">
             <div class="r1 c4 h1 w1 textpanel"><span style="font-size:4.25em;color:#e6dec4;">1911</span></div>
+            <div class="timeline-label" data-begin="2s" style="top: 2000px; left: 2000px">2000</div>
             <div class="r1 c3 h1 w1 textpanel"><span style="font-size:.80em;text-align:left;margin-left:7%;width:93%;">Halan Harvey York, Professor of Botany</span></div>
             <div class="r1 c2 h2 w1 image" style="background-image: url(images/timeline-images/HarlenHarveyYork.jpg);background-size:cover;"></div>
             <!-- <div class="r2 c4 h2 w1" style="background-image: url(images/timeline-images/);background-size:cover;"></div> -->
           </div>
 
-         <!-- 11th year -->
+         <!-- 1920 -->
 
           <div id="y1920" title="&rarr; 1920" data-timecontainer="par">
             <div class="r1 c4 h1 w1 textpanel"><span style="font-size:4.25em;color:#e6dec4;">1920</span></div>
@@ -259,7 +275,7 @@
             <!-- <div class="r2 c4 h2 w1" style="background-image: url(images/timeline-images/);background-size:cover;"></div> -->
           </div>
 
-         <!-- 12th year -->
+         <!-- 1938 -->
 
           <div id="y1938" title="&rarr; 1938:1" data-timecontainer="par">
             <div class="r1 c4 h1 w1 textpanel"><span style="font-size:4.25em;color:#e6dec4;">1938</span></div>
@@ -268,7 +284,7 @@
             <!-- <div class="r2 c4 h2 w1" style="background-image: url(images/timeline-images/);background-size:cover;"></div> -->
           </div>
 
-         <!-- 13th year -->
+         <!-- 1938 -->
 
           <div id="y1938" title="&rarr; 1938:2" data-timecontainer="par">
             <div class="r1 c4 h1 w1 textpanel"><span style="font-size:4.25em;color:#e6dec4;">1938</span></div>
@@ -277,7 +293,7 @@
             <!-- <div class="r2 c4 h2 w1" style="background-image: url(images/timeline-images/);background-size:cover;"></div> -->
           </div>
 
-         <!-- 14th year -->
+         <!-- 1987 -->
 
           <div id="y1987" title="&rarr; 1987" data-timecontainer="par">
             <div class="r1 c4 h1 w1 textpanel"><span style="font-size:4.25em;color:#e6dec4;">1987</span></div>
@@ -286,7 +302,7 @@
             <!-- <div class="r2 c4 h2 w1" style="background-image: url(images/timeline-images/);background-size:cover;"></div> -->
           </div>
 
-         <!-- 15th year -->
+         <!-- 19something -->
 
           <div id="y19--" title="&rarr; 19--" data-timecontainer="par">
             <div class="r1 c4 h1 w1 textpanel"><span style="font-size:4.25em;color:#e6dec4;">19--</span></div>
@@ -295,7 +311,7 @@
             <!-- <div class="r2 c4 h2 w1" style="background-image: url(images/timeline-images/);background-size:cover;"></div> -->
           </div>
 
-         <!-- 16th year -->
+         <!-- 2008 -->
 
           <div id="y2008" title="&rarr; 2008" data-timecontainer="par">
             <div class="r1 c4 h1 w1 textpanel"><span style="font-size:4.25em;color:#e6dec4;">2008</span></div>
@@ -304,15 +320,15 @@
             <!-- <div class="r2 c4 h2 w1" style="background-image: url(images/timeline-images/);background-size:cover;"></div> -->
           </div>
 
-        <!-- 17th year -->
+        <!-- 2013 -->
 
-          <div id="y2013" title="&rarr; 2013" data-timecontainer="par">
+          <div id="y2013" title="&rarr; 2013" data-timecontainer="par"
+            data-onbegin="DSL.config.setTimelineTo(0);">
             <div class="r1 c4 h1 w1 textpanel"><span style="font-size:4.25em;color:#e6dec4;">2013</span></div>
             <div class="r1 c3 h1 w1 textpanel"><span style="font-size:.80em;text-align:left;margin-left:7%;width:93%;">Herbarium moved to BioMedical Center</span></div>
             <div class="r1 c2 h2 w1 image" style="background-image: url(images/timeline-images/NewHerbarium3.jpg);background-size:cover;"></div>
             <!-- <div class="r2 c4 h2 w1" style="background-image: url(images/timeline-images/);background-size:cover;"></div> -->
           </div>
-
         </div>
       </div>
 

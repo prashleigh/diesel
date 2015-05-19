@@ -48,3 +48,9 @@
   stroke-opacity:1
 }
 
+.timeline-label {
+  position:absolute;
+  color: red;
+  font-size: 10em;
+  z-index: 200000;
+}
