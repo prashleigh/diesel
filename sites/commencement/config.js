@@ -26,19 +26,26 @@ define(['jquery'], function ($) {
       document.getElementById('timeline-count-line').style.strokeDashoffset = offset;
     },
     
+    // Load all the points onto the map
+    
     loadMapPoints: function () {
     
       var getX = function (x) { return 1900 - ((-114.90157671276563 * x) - 7505.273581531246) },
           getY = function (y) { return (-340.42870631023067 * y) + 16665.39316481322 },
           svg = document.getElementById('timeline-map-points'),
+          JITTER_AMOUNT = 100,
+          jitterDistance, jitterAngle,
           use;
       
       timelineMapPoints.forEach(function (p) {
 
         use = document.createElementNS('http://www.w3.org/2000/svg','use');
         
-        use.setAttribute('x', getX(p.x));
-        use.setAttribute('y', getY(p.y));
+        jitterDistance = Math.random() * JITTER_AMOUNT;
+        jitterAngle = Math.random() * Math.PI * 2;
+        
+        use.setAttribute('x', getX(p.x) + (jitterDistance * Math.cos(jitterAngle)));
+        use.setAttribute('y', getY(p.y) + (jitterDistance * Math.sin(jitterAngle)));
         use.setAttributeNS('http://www.w3.org/1999/xlink','href','#timeline-map-point');
         use.style.visibility = 'hidden';
 
@@ -48,6 +55,9 @@ define(['jquery'], function ($) {
         p.startDate = new Date(p.startDate);
       });
     },
+    
+    // Toggle point visibility depending on where they fall 
+    // relative to a date threshold
     
     showMapPointsTo: function (dateString) {
     
