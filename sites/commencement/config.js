@@ -19,8 +19,51 @@ define(['jquery'], function ($) {
 
     id: 'commencement2015',
     slideshowContainerId: 'slideshow',
+    
+    // Some ad-hoc routines ...
+    
     setTimelineTo: function (offset) {
       document.getElementById('timeline-count-line').style.strokeDashoffset = offset;
+    },
+    
+    loadMapPoints: function () {
+    
+      var getX = function (x) { return 1900 - ((-114.90157671276563 * x) - 7505.273581531246) },
+          getY = function (y) { return (-340.42870631023067 * y) + 16665.39316481322 },
+          svg = document.getElementById('timeline-map-points'),
+          use;
+      
+      timelineMapPoints.forEach(function (p) {
+
+        use = document.createElementNS('http://www.w3.org/2000/svg','use');
+        
+        use.setAttribute('x', getX(p.x));
+        use.setAttribute('y', getY(p.y));
+        use.setAttributeNS('http://www.w3.org/1999/xlink','href','#timeline-map-point');
+        use.style.visibility = 'hidden';
+
+        svg.appendChild(use);
+        
+        p.node = use;
+        p.startDate = new Date(p.startDate);
+      });
+    },
+    
+    showMapPointsTo: function (dateString) {
+    
+      var cutoffDate = new Date(dateString);
+      
+      timelineMapPoints.forEach(function (p, i) {
+      
+        if (p.startDate < cutoffDate) {
+          setTimeout( function() { 
+            p.node.style.visibility = 'visible';
+          }, (cutoffDate - p.startDate) / 500000000);
+          console.log('time: ' + (cutoffDate - p.startDate) / 500000000);
+        } else {
+          p.node.style.visibility = 'hidden';
+        }
+      });
     },
 
     /* Message handlers - what happens if message <messageID> is received by <recipientRole> ?

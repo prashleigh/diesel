@@ -8,9 +8,11 @@
   <title>Commencement 2015 Talk</title>
 
   <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script src="scripts/map-data.js"></script>
 
   <link rel="stylesheet" type="text/css" href="../../style/main.css" />
   <link rel="stylesheet" type="text/css" href="main.css" />
+
   <script data-main="../../scripts/main" src="../../scripts/require.js"></script>
 </head>
 
@@ -120,12 +122,30 @@
 
     <div id="timeline" data-timecontainer="par" title="Start of timeline">
 
-      <div data-timecontainer="par" data-role="wall" class="r1 c1 w4 h3" style="background-color: black">
+      <div data-timecontainer="par" data-role="wall" class="r1 c1 w4 h3" style="background-color: black"
+           data-onbegin="DSL.config.loadMapPoints()">
         
         <!-- Map -->
         
         <div data-timecontainer="par" class="r1 c1 h3 w1" 
           style="background-image: url(images/New-England.svg); background-repeat: no-repeat; background-size: 700%; background-position: right top;"></div>
+        
+        <!-- Map dots -->
+        
+        <svg xmlns="http://www.w3.org/2000/svg" 
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          version="1.1" 
+          class="c1 r1 w1 h3" id="timeline-map-points"
+          style="z-index:100000">
+          
+          <defs>
+            <circle fill="red" r="20" id="timeline-map-point"></circle>
+          </defs>
+          
+          <!-- 1000,550 = -68.321722,47.338526 -->
+          <!-- 345, 2850 = -74.022253, 40.582339 -->
+
+        </svg>
         
         <!-- Chart line -->
         
@@ -176,7 +196,8 @@
           <!-- 1869 -->
          
           <div id="y1869" title="&rarr; 1869" data-timecontainer="par"
-            data-onbegin="DSL.config.setTimelineTo(5360);">
+            data-onbegin="DSL.config.setTimelineTo(4400); DSL.config.showMapPointsTo('1869');">
+            <div class="timeline-label" data-begin="2s" style="top: 2800px; left: 1100px">1,537 specimens</div>
             <div class="r1 c4 h1 w1 textpanel"><span style="font-size:4.25em;color:#e6dec4;">1869</span></div>
             <div class="r1 c3 h1 w1 textpanel"><span style="font-size:.80em;text-align:left;margin-left:7%;width:93%;">Stephen Thayer Olney donated his herbarium collection to Brown</span></div>
             <div class="r1 c2 h2 w1 image" style="background-image: url(images/timeline-images/StephenOlney.jpg);background-size:cover;"></div>
@@ -258,9 +279,9 @@
          <!-- 1911 -->
 
           <div id="y1911" title="&rarr; 1911" data-timecontainer="par"
-            data-onbegin="DSL.config.setTimelineTo(2500);">
+            data-onbegin="DSL.config.setTimelineTo(2500); DSL.config.showMapPointsTo('1911')">
             <div class="r1 c4 h1 w1 textpanel"><span style="font-size:4.25em;color:#e6dec4;">1911</span></div>
-            <div class="timeline-label" data-begin="2s" style="top: 2000px; left: 2000px">2000</div>
+            <div class="timeline-label" data-begin="2s" style="top: 2000px; left: 2000px">16,494 specimens</div>
             <div class="r1 c3 h1 w1 textpanel"><span style="font-size:.80em;text-align:left;margin-left:7%;width:93%;">Halan Harvey York, Professor of Botany</span></div>
             <div class="r1 c2 h2 w1 image" style="background-image: url(images/timeline-images/HarlenHarveyYork.jpg);background-size:cover;"></div>
             <!-- <div class="r2 c4 h2 w1" style="background-image: url(images/timeline-images/);background-size:cover;"></div> -->
@@ -324,7 +345,8 @@
 
           <div id="y2013" title="&rarr; 2013" data-timecontainer="par"
             data-onbegin="DSL.config.setTimelineTo(0);">
-            <div class="r1 c4 h1 w1 textpanel"><span style="font-size:4.25em;color:#e6dec4;">2013</span></div>
+            <div class="timeline-label" data-begin="2s" style="top: 1200px; left: 4500px">19,782 specimens</div>
+            <div class="r1 c4 h1 w1 textpanel" data-begin="1s"><span style="font-size:4.25em;color:#e6dec4;">2013</span></div>
             <div class="r1 c3 h1 w1 textpanel"><span style="font-size:.80em;text-align:left;margin-left:7%;width:93%;">Herbarium moved to BioMedical Center</span></div>
             <div class="r1 c2 h2 w1 image" style="background-image: url(images/timeline-images/NewHerbarium3.jpg);background-size:cover;"></div>
             <!-- <div class="r2 c4 h2 w1" style="background-image: url(images/timeline-images/);background-size:cover;"></div> -->
@@ -342,6 +364,7 @@
     <div id="world" data-timecontainer="par" title="World coverage map">
 
       <div data-timecontainer="par" data-role="wall"
+        data-begin="2s"
         class="c1 r1 h3 w4 image" 
         style="background-color: black; background-image: url('images/BlankMap-World6.svg');">
       </div>
@@ -541,8 +564,8 @@
             <div id="cat-swamp-map-satellite" data-timecontainer="par" title="&rarr; Satellite map"
               data-onbegin="DSL.config.slideEvents['cat-swamp-map-satellite'].onbegin()">
               <!-- Wall view -->
-              <div class="r1 c1 w4 h3 image" data-role="wall" style="background-image: url(images/cat-swamp-maps-higher-res/cat-swamp-maps_imageplacement_3.jpg);"
-                   data-begin="3s"></div>
+              <div class="r1 c1 w4 h3 image" data-role="wall" 
+                   style="background-image: url(images/cat-swamp-maps-higher-res/cat-swamp-maps_imageplacement_3.jpg);"></div>
               <!-- Audience -->
               <div data-role="audience">
                 Satellite map audience content
