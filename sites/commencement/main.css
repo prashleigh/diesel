@@ -41,7 +41,7 @@
 #timeline-count path {
   opacity:1;
   fill:none;
-  stroke: ##dd0033;
+  stroke: red;
   stroke-width:60;
   stroke-linecap:butt;
   stroke-linejoin:miter;
@@ -50,7 +50,7 @@
 
 .timeline-label {
   position:absolute;
-  color: ##dd0033;
+  color: red;
   font-size: 10em;
   z-index: 200000;
 }
