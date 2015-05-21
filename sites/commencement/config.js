@@ -135,13 +135,20 @@ define(['jquery'], function ($) {
       },
       'activity-1': {
         'onbegin': function () {
-          // $('#google-form').attr('src', 'http://www.google.com');
-          console.log('* Starting activity');
+          var iframe = $('#treemap-iframe');
+          iframe.attr('src', iframe.attr('data-src'));
+        },
+        'onend': function () {
+          $('#treemap-iframe').attr('src', '');
         }
       },
       'activity-2': {
         'onbegin': function () {
-          
+
+          var resultsPageIframe = $('#results1')
+          resultsPageIframe.attr('src', resultsPageIframe.attr('data-src'));
+
+          /*
           // Google spreasheets API as described in: 
           //  * https://developers.google.com/gdata/samples/spreadsheet_sample
           //  * https://developers.google.com/gdata/docs/json
@@ -159,7 +166,7 @@ define(['jquery'], function ($) {
               console.error('error' + message); 
           }).complete(function() {
               console.log('completed!'); 
-          });
+          }); */
         }
       },
       'treemap': {
@@ -168,7 +175,6 @@ define(['jquery'], function ($) {
           iframe.attr('src', iframe.attr('data-src'));
         },
         'onend': function () {
-          alert('gfdfg');
           $('#treemap-iframe').attr('src', '');
         }
       }

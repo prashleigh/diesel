@@ -503,13 +503,16 @@
         <div class="c2 r2 w2 h1 textpanel" data-begin="0s" data-end="60s">
           <span>Transcribe!</span>
         </div>
-        <div class="c1 r2 w4 h1" data-begin="60s" style="font-size: 500px; line-height: 1080px"><span>Time's up!</span></div>
+        <div class="c1 r2 w4 h1" data-begin="60s" style="font-size: 500px; line-height: 1080px; text-align: center">
+          <span>Time's up!</span>
+        </div>
       </div>
 
       <!-- Audience view -->
 
       <iframe data-role="audience" class="fullheight" src="http://goo.gl/forms/fp1lr7cEPJ" 
-              id="google-form" style="width: 100%; overflow: scroll; position: absolute; top: 0;">
+              id="google-form" style="width: 100%; overflow: scroll; position: absolute; top: 0;"
+              data-onbegin="DSL.config.slideEvents['activity-1'].onbegin()">
         Sorry, this doesn't seem to be working on your phone. Turn to your neighbour and try theirs instead ...
       </iframe>
     </div>
@@ -517,23 +520,35 @@
     <!-- Activity results -->
 
     <div id="activity-2" title="Activity results" 
-         data-timecontainer="par" data-onbegin="DSL.config.slideEvents['activity-2'].onbegin()">
+         data-timecontainer="par" 
+         data-onbegin="DSL.config.slideEvents['activity-2'].onbegin()">
 
       <!-- Show on wall only -->
 
       <div data-timecontainer="par" data-role="wall" style="background-color: #ddd">
+        
+        <!-- First card -->
+        
         <div class="c1 r1 w1 h1 image" style="background-image: url('images/activity-labels/Label-1_bdr405865.png')"></div>
-        <div class="c1 r2 w1 h2 activity-results" id="results1" style="background-color: black">
-          <span>Text</span>
-        </div>
+        <iframe class="c1 r2 w1 h2 activity-results" id="results1" style="background-color: black" 
+          data-src="content/activity-results/"></iframe>
+        
+        <!-- Second card -->
+        
         <div class="c2 r1 w1 h1 image" style="background-image: url('images/activity-labels/Label-3_bdr390461.png')"></div>
         <div class="c2 r2 w1 h2 activity-results" id="results2" style="background-color: black">
           <span>Text</span>
         </div>
+        
+        <!-- Third card -->
+        
         <div class="c3 r1 w1 h1 image" style="background-image: url('images/activity-labels/Label-2_bdr390790.png')"></div>
         <div class="c3 r2 w1 h2 activity-results" id="results3" style="background-color: black">
           <span>Text</span>
         </div>
+        
+        <!-- Fourth card -->
+        
         <div class="c4 r1 w1 h1 image" style="background-image: url('images/activity-labels/Label-4_bdr391598.png')"></div>
         <div class="c4 r2 w1 h2 activity-results" id="results4" style="background-color: black">
           <span>Text</span>
