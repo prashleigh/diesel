@@ -127,7 +127,10 @@
  * HIGHLIGHTS FOR HERBARIUM
  */
 
-.us, .ca, .mx, .cu, .co, .uk, .fr, .it, .ch, .de, .se, .ru, .cn, .jp, .in, .np, .lk, .bd, .za, .rm, .au, .nz, .pe, .mg, .bo, .ec, .ar, .cl, .sy, .pg, .tw, .nc,    {
+.us, .ca, .mx, .cu, .co, .uk, .fr, .it, 
+.ch, .de, .se, .ru, .cn, .jp, .in, .np, 
+.lk, .bd, .za, .rm, .au, .nz, .pe, .mg, 
+.bo, .ec, .ar, .cl, .sy, .pg, .tw, .nc {
    fill: #dd0033;
 }
 
