@@ -98,15 +98,20 @@ define(['message', 'page-transform', 'jquery', 'slide-factory', 'config.js'],
 
       // TODO: make this better
       
-      $('#slideshow > *[data-timecontainer][id]').each(function (index, timeContainer) {
-        containerIdToIndex[timeContainer.id] = index;
+      $('#slideshow *[data-timecontainer][id][title]').each(function (index, timeContainer) {
+        // containerIdToIndex[timeContainer.id] = index;
+        containerIdToIndex[timeContainer.id] = timeContainer.timing;
       });
 
-      messageObject.onReceive('goto', function (data) {
-        if (containerIdToIndex[data] !== undefined) {
-          console.log('* Moving to slide: ' + data);
-          console.log('  slideShowContainer.timing.selectIndex(' + containerIdToIndex[data] + ');');
-          slideShowContainer.timing.selectIndex(containerIdToIndex[data]); 
+      messageObject.onReceive('goto', function (selectId) {
+        var selectedTimeContainer = containerIdToIndex[selectId];
+        if (selectedTimeContainer !== undefined) {
+          console.log('* Moving to slide: ' + selectId);
+          console.log('  selectedTimeContainer.parentNode.selectItem(' + selectedTimeContainer + ')');
+          
+          x = selectedTimeContainer;
+          
+          selectedTimeContainer.parentNode.selectItem(selectedTimeContainer);
         }
       });
       
