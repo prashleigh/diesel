@@ -53,4 +53,7 @@
   color: #dd0033;
   font-size: 10em;
   z-index: 200000;
+  padding: .25em;
+  background-color: #e6dec4;
+  opacity: .6;
 }
