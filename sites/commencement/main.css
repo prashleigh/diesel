@@ -57,3 +57,10 @@
   background-color: #e6dec4;
   opacity: .6;
 }
+
+/* Mobile audience view */
+
+.audience .fullheight {
+  padding: 0 50px 100px 0;
+  color: white;
+}
