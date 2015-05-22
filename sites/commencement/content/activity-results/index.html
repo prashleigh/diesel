@@ -31,11 +31,12 @@
     <ul id="output"></ul>
     <script type="application/javascript">
       
-        // var SPREADSHEET_URL = 'https://docs.google.com/spreadsheets/d/1t8Qe1nH2ptwmp-RLaF2iZSHBfGIY4GrFLvkcAUd0yKI/edit?usp=sharing';
-        var SPREADSHEET_URL = 'https://docs.google.com/spreadsheets/d/1The7N7Oh9DPQoLBF95PmBELLyArL8KRhoCPMMQBZfRs/edit?usp=sharing';
-        // var SPREADSHEET_URL = 'https://docs.google.com/spreadsheets/d/1The7N7Oh9DPQoLBF95PmBELLyArL8KRhoCPMMQBZfRs/pubhtml?gid=202323309&amp;single=true';
-        // Pre-process data for ingestion into google visualization drawer
-       
+        var SPREADSHEET_URL = [
+          'https://docs.google.com/spreadsheets/d/1The7N7Oh9DPQoLBF95PmBELLyArL8KRhoCPMMQBZfRs/edit?usp=sharing',
+          'https://docs.google.com/spreadsheets/d/1JO3P4O7FDAwBk6d7SVyhcAZBXpW92QJk2BrPs1EVh4k/edit?usp=sharing',
+          'https://docs.google.com/spreadsheets/d/1hPlpKpXor6AYXWk3QJLHf2LcdkJW3UdYR3uM2M-qdoE/edit?usp=sharing',
+          'https://docs.google.com/spreadsheets/d/1E-OnlAY3EBaUTh-Sb4ofsV6-m74H4EAQ4OdUn1UMXlw/edit?usp=sharing' ];
+          
        function processData(response) {
          
          // Abort if an error
