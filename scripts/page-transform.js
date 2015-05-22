@@ -82,16 +82,18 @@ ORIGINAL:
       
       if (clientRole === 'audience') { // DESPERATE KLUDGE FOR COMMENCEMENT
         $('.fullheight').css('width', $(window).width());
-        $('.fullheight').css('height', $(window).height() + 'px');
+        //$('.fullheight').css('height', $(window).height() + 'px');
       }
       
+      /*
       $( window ).resize(function() {
         $('.fullheight').css('height', $(window).height());
         if (clientRole === 'audience') { // DESPERATE KLUDGE FOR COMMENCEMENT
           $('.fullheight').css('width', $(window).width() + 'px');
-          $('.fullheight').css('height', $(window).height() + 'px');
+          //$('.fullheight').css('height', $(window).height() + 'px');
         }
       });
+      */
       
       // Set fullscreen textpanel heights
 
