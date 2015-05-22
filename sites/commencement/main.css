@@ -58,6 +58,15 @@
   opacity: .6;
 }
 
+.event-blurb {
+  color: white;
+  text-align:left;
+  padding-left:1em;
+  font-size:9.5em;
+  margin-top: 1.5em;
+  margin-right:7%;
+}
+
 /* Mobile audience view */
 
 .audience .fullheight {
