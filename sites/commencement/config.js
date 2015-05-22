@@ -135,11 +135,15 @@ define(['jquery'], function ($) {
       },
       'activity-1': {
         'onbegin': function () {
-          var iframe = $('#treemap-iframe');
-          iframe.attr('src', iframe.attr('data-src'));
-        },
-        'onend': function () {
-          $('#treemap-iframe').attr('src', '');
+        
+          var formNumber = Math.floor(Math.random() * 4) + 1,
+              formUrl = [ 'http://goo.gl/forms/bCqK0CimFo',
+                          'http://goo.gl/forms/aTouJgZexe',
+                          'http://goo.gl/forms/f3gHyZfTNB',
+                          'http://goo.gl/forms/raU6LZCRQ0'];
+          
+          $('#google-form-' + formNumber).css('display', 'block');
+          console.log('Showing number ' + formNumber);
         }
       },
       'activity-2': {
@@ -153,26 +157,6 @@ define(['jquery'], function ($) {
             resultsPageIframe = $('#results' + resultsNumber);
             resultsPageIframe.attr('src', resultsPageIframe.attr('data-src'));            
           };
-
-          /*
-          // Google spreasheets API as described in: 
-          //  * https://developers.google.com/gdata/samples/spreadsheet_sample
-          //  * https://developers.google.com/gdata/docs/json
-          
-          var url = 'https://spreadsheets.google.com/feeds/list/' + 
-                    '1The7N7Oh9DPQoLBF95PmBELLyArL8KRhoCPMMQBZfRs/o3cghiv/' + 
-                    'public/full?alt=json-in-script&callback=?';
-          
-          $.getJSON(url).success(function(data) {
-            data.feed.entry.forEach(function(formEntry) {
-              console.log(formEntry);
-              $('#results1').append('<p>' + formEntry.content.$t.slice('transcribetheabovenote: '.length) + '</p');
-            });  
-          }).error(function(message) {
-              console.error('error' + message); 
-          }).complete(function() {
-              console.log('completed!'); 
-          }); */
         }
       },
       'treemap': {
