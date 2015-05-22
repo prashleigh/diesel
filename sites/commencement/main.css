@@ -32,7 +32,7 @@
   width: 100%;
 }
 
-/* Timeline chart line */
+/* Timeline chart line + */
 
 #timeline-count {
   z-index: 100000;
@@ -56,6 +56,15 @@
   padding: .25em;
   background-color: #4f3528;
   opacity: .6;
+}
+
+.event-blurb {
+  color: white;
+  text-align:left;
+  padding-left:1em;
+  font-size:9.25em;
+  margin-top: 1.5em;
+  margin-right:7%;
 }
 
 /* Mobile audience view */
