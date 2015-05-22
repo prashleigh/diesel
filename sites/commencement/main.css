@@ -76,14 +76,20 @@
 /* Mobile audience view */
 
 .audience .fullheight {
-  padding: 0 50px 100px 0;
+  padding: 0;
+  margin: 0;
   color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1000px;
 }
 
 #google-form-1, #google-form-2, #google-form-3, #google-form-4 {
   width: 100%; 
   overflow: scroll; 
   position: absolute; 
-  top: 0;
+  top: 150px;
   display:none;
+  height: 2000px;
 }
