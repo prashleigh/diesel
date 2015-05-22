@@ -17,6 +17,12 @@
   font-family: MinionRoman;
 }
 
+/* Don't display materials on phone that are for the wall */
+
+.audience *[data-role='wall'] {
+  display: none;
+}
+
 /* Numbers for activity countdown */
 
 .countdown div[data-begin] {
