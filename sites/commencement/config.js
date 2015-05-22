@@ -145,8 +145,14 @@ define(['jquery'], function ($) {
       'activity-2': {
         'onbegin': function () {
 
-          var resultsPageIframe = $('#results1')
-          resultsPageIframe.attr('src', resultsPageIframe.attr('data-src'));
+          var resultsPageIframe, resultsNumber;
+
+          // Load all the results pages
+
+          for (resultsNumber = 1; resultsNumber < 5; resultsNumber++) {
+            resultsPageIframe = $('#results' + resultsNumber);
+            resultsPageIframe.attr('src', resultsPageIframe.attr('data-src'));            
+          };
 
           /*
           // Google spreasheets API as described in: 

@@ -29,13 +29,16 @@
   </head>
   <body>
     <ul id="output"></ul>
+    
     <script type="application/javascript">
       
-        var SPREADSHEET_URL = [
-          'https://docs.google.com/spreadsheets/d/1The7N7Oh9DPQoLBF95PmBELLyArL8KRhoCPMMQBZfRs/edit?usp=sharing',
-          'https://docs.google.com/spreadsheets/d/1JO3P4O7FDAwBk6d7SVyhcAZBXpW92QJk2BrPs1EVh4k/edit?usp=sharing',
-          'https://docs.google.com/spreadsheets/d/1hPlpKpXor6AYXWk3QJLHf2LcdkJW3UdYR3uM2M-qdoE/edit?usp=sharing',
-          'https://docs.google.com/spreadsheets/d/1E-OnlAY3EBaUTh-Sb4ofsV6-m74H4EAQ4OdUn1UMXlw/edit?usp=sharing' ];
+        var SPREADSHEET_URLS = [
+              'https://docs.google.com/spreadsheets/d/1The7N7Oh9DPQoLBF95PmBELLyArL8KRhoCPMMQBZfRs/edit?usp=sharing',
+              'https://docs.google.com/spreadsheets/d/1JO3P4O7FDAwBk6d7SVyhcAZBXpW92QJk2BrPs1EVh4k/edit?usp=sharing',
+              'https://docs.google.com/spreadsheets/d/1hPlpKpXor6AYXWk3QJLHf2LcdkJW3UdYR3uM2M-qdoE/edit?usp=sharing',
+              'https://docs.google.com/spreadsheets/d/1E-OnlAY3EBaUTh-Sb4ofsV6-m74H4EAQ4OdUn1UMXlw/edit?usp=sharing' ],
+            SPREADSHEET_INDEX = parseInt(/n=([1234])/.exec(window.location.search)[1]) - 1,
+            SPREADSHEET_URL = SPREADSHEET_URLS[SPREADSHEET_INDEX];
           
        function processData(response) {
          
