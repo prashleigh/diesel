@@ -1,0 +1,40 @@
+<!DOCTYPE html SYSTEM "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Commencement 2015 Forum</title>
+    <style>
+      
+      body {
+        background-image: url('images/caltha-palustris.jpg');
+        background-position: middle top;
+        background-size: cover;
+      }
+      
+    </style>
+    <script data-main="../../scripts/main" src="../../scripts/require.js"></script>
+    <script>
+  
+    var DSL; 
+    
+    require.config({ baseUrl: '../../scripts' });
+    require(['DSL'], function(dsl) {
+      
+      DSL = dsl;
+
+      var formNumber = Math.floor(Math.random() * 4),
+          formUrl = [ 'http://goo.gl/forms/bCqK0CimFo',
+                      'http://goo.gl/forms/aTouJgZexe',
+                      'http://goo.gl/forms/f3gHyZfTNB',
+                      'http://goo.gl/forms/raU6LZCRQ0' ];
+
+      dsl.message.onReceive('goto', function (id) {
+        if (id === 'activity-1') {
+          window.location.assign(formUrl[formNumber]);
+        }
+      });
+    });
+    
+  </script>
+  </head>
+  <body></body>
+</html>

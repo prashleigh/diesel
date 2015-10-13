@@ -1,0 +1,294 @@
+<!DOCTYPE html SYSTEM "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Herbarium Treemap</title>
+    <style>
+
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: auto;
+        position: relative;
+        background: #aaa;
+        /* width: 960px; */
+        overflow: hidden;
+      }
+      
+      .node, .nodelabel {
+        /* border: solid 1px white; */
+        border: none;
+        font: 10px sans-serif;
+        line-height: 12px;
+        overflow: hidden;
+        position: absolute;
+        text-indent: 2px;
+        background: transparent;
+      }
+      
+      .node.family {
+        /*border: solid 1px white; */
+        background-color: black;
+        border-radius: 1em;
+        margin: 0;
+        /*display: none; */
+        /* z-index: -10000; send background to back */
+      }
+      
+      .node.genus {
+        display: none; /* don't display for now */
+        border: dashed 1px #888;
+        z-index: -9999; /* send background to back */
+      }
+      
+      .node.species {
+        background-repeat: no-repeat;
+        background-size: contain; /* cover */
+        background-position: 50% 50%;
+      }
+      
+      .labels .nodelabel {
+        color: white;
+        z-index: 10000;
+        text-shadow: 0.1em 0.1em black;
+        font-size: 250%;
+        padding-top: 1em;
+      }
+      
+      .labels .nodelabel span { 
+        background: transparent;
+        margin-left: 1em;
+      }
+      
+      /* Show only labels for family */
+      
+      .nodelabel.species, .nodelabel.genus {
+        display: none; 
+      }
+      
+    </style>
+    <script src="d3.v3.min.js"></script>
+    <script src="data-cat-swamp.js"></script>
+ 
+    <script>
+      
+      // Send signal to change specimen focus
+      // This signal is sent via Pusher to the main Herbarium display page (in which this TreeMap page in embedded)
+      // The popups are created and controlled there
+      
+      function selectSpecimen(specimenId, specimenImgURL) {
+        console.log('Sending request to wall to change specimen to: ' + specimenId + ' -- url ' + specimenImgURL);
+        d3.text(  'http://library.brown.edu/dsl/temp/best-of-2013/trigger-herbarium-specimen-change.php?' 
+                    + 'specimen=' + specimenId
+                    + '&imgurl=' + specimenImgURL,
+                  function (error, response) { console.log("Response from Trigger page:" + response) } )
+      }
+      
+    </script>
+ 
+  </head>
+  <body>
+    <div></div>
+    <script type="application/javascript"><!--
+      
+      var SIZE_BY_COUNT = false;
+      var COLORED_BACKGROUNDS = false;
+      
+      var data = getData();
+      var tree = {};
+      var genus, family, species, imageUrl;
+      
+      var IS_WALL = (window.innerWidth > 7000),
+          LOAD_IMAGES = IS_WALL,
+          BORDER_OFFSET = '1em'; // Distance between box and border for containers
+      
+      // Go through each plant entry
+      
+      for (var i = 0; i < data.length; i++) {
+        
+        /*
+        
+          ENTRY EXAMPLE:
+        
+          "family": "Violaceae",
+          "genus": "Viola",
+          "species": "sagittata",
+          "pid": "bdr:411443",
+          "imageUrl": "https://repository.library.brown.edu/viewers/image/medium/bdr:411443"
+        
+        */
+        
+        family   = data[i].family;
+        genus    = data[i].genus;
+        species  = data[i].species;
+        imageUrl = data[i].imageUrl;
+ 
+        // If family not in tree, create empty family node
+
+        if (! tree.hasOwnProperty(family)) { 
+          tree[family] = {};
+        }
+
+        // If genus not in tree, create empty genus node
+
+        if (! tree.hasOwnProperty(genus)) { 
+          tree[family][genus] = {};
+        }
+
+        // If species not in tree, create empty species node
+        //console.log(tree);  
+        console.log(family + ' ' + genus + ' ' + data[i].pid);
+        if (! tree[family][genus].hasOwnProperty(species)) { 
+          tree[family][genus][species] = {
+            size: 0, 
+            imageUrls : []
+          };
+        }
+
+        // Add data to family/genus/species node
+
+        tree[family][genus][species].size++;
+        tree[family][genus][species].imageUrls.push(imageUrl);
+      }
+      
+        // Now convert tree structure into treemap-ready structure (root)
+      
+        var root = { 'name' : 'plants', children: [] };
+        var f, g, s, fObject, gObject, sObject;
+        
+        for (f in tree) {
+        
+          fObject = { 'name': f, children: [], type: 'family' };
+          
+          for (g in tree[f]) {
+            
+            gObject = { 'name': g, children: [], type: 'genus' };
+            
+            for (s in tree[f][g]) {
+            
+              sObject = { 
+                name: f + ' ' + g + ' ' + s, 
+                size: (SIZE_BY_COUNT ? tree[f][g][s].size : 1), 
+                imageUrls: tree[f][g][s].imageUrls,
+                type: 'species'
+              };
+              
+              gObject.children.push(sObject);
+            }
+            
+            fObject.children.push(gObject);
+          }
+
+          root.children.push(fObject);
+        }
+        
+        // Now draw!
+      
+        console.log(tree);
+        console.log(root);
+
+        var margin = { top: 0, right: 0, bottom: 0, left: 0 },
+            width  = window.innerWidth  - margin.left - margin.right,
+            height = window.innerHeight - margin.top - margin.bottom;
+        
+        var color = d3.scale.category20b();
+        
+        var treemap = d3.layout.treemap()
+            .size([width, height])
+            .sticky(true)
+            .value(function(d) { return d.size; });
+        
+        // Create containing div
+      
+        var div = d3.select('div').append('div')
+            .attr('id','treeroot')
+            .style("position", "relative")
+            .style("width",  (width + margin.left + margin.right)  + "px")
+            .style("height", (height + margin.top + margin.bottom) + "px")
+            .style("left", margin.left + "px")
+            .style("top",  margin.top  + "px");
+
+      
+        // Now put the labels in
+      
+        var labels = div.append('div').attr('class','labels');
+        labels.datum(root).selectAll('.nodelabel')
+            .data(treemap.nodes)
+          .enter().append('div')
+            .attr('class', function (d) { 
+              return 'nodelabel ' + d.type;
+            })
+            .call(position)
+            .append('span')
+              .text(function (d) { return d.name; });
+      
+        // Now put the images inside according to treemap layout
+      
+        var node = div.datum(root).selectAll('.node')
+            .data(treemap.nodes)
+          .enter().append('div')
+            .attr('class', function (d) { 
+              return 'node ' + d.type;
+            })
+            .call(position)
+            .style('background-image', function(d) {
+              
+              var imgUrl;
+            
+              if (! d.children) {
+                imgUrl = (  true || LOAD_IMAGES 
+                            ? "url('" + d.imageUrls[0] + "')" // "url('" + d.imageUrls[0] + "?resize=300&format=jpeg')" 
+                            : "url('placeholder.png')" );  
+              } else {
+                imgUrl = null;
+              }
+              return imgUrl;
+            })
+            .on('click', function (d) { 
+              selectSpecimen(d.name, d.imageUrls[0]); 
+              console.log(d);
+            });
+        /*
+            .append('div')
+              .attr('class', 'label')
+              .text(function(d) { 
+                var title;
+                if (d.type === 'family') {
+                  title = d.name; 
+                }
+                return title;
+              });*/
+      
+
+        
+      
+        d3.selectAll("input").on("change", function change() {
+          var value = this.value === "count"
+              ? function() { return 1; }
+              : function(d) { return d.size; };
+      
+          node
+              .data(treemap.value(value).nodes)
+            .transition()
+              .duration(1500)
+              .call(position);
+        });
+      
+      function position(d) {
+        
+        this.style("left",   function(d) { return d.x + "px"; })
+            .style("top",    function(d) { return d.y + "px"; })
+            .style("width",  function(d) { return Math.max(0, d.dx - 1) + "px"; })
+            .style("height", function(d) { return Math.max(0, d.dy - 1) + "px"; });
+        
+        /*
+        console.log('position - ' + d[0]);
+        
+        this.style("left",   function(d) { return (d.x + BORDER_OFFSET) + "px"; })
+            .style("top",    function(d) { return (d.y + BORDER_OFFSET) + "px"; })
+            .style("width",  function(d) { return Math.max(0, d.dx - 1 - (BORDER_OFFSET * 2)) + "px"; })
+            .style("height", function(d) { return Math.max(0, d.dy - 1 - (BORDER_OFFSET * 2)) + "px"; });*/
+      }
+
+      // -->
+    </script>
+  </body>
+</html>

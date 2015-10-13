@@ -1,0 +1,10 @@
+
+
+HOW TO COMPRESS THE CODE
+
+r.js -o baseUrl=. paths.requireLib=../require name=main include=requireLib out=main-built.js
+
+Although it may be actually:
+
+r.js -o baseUrl=. paths.requireLib=require name=main include=requireLib out=main-built.js
+
