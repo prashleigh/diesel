@@ -98,7 +98,7 @@ define(['message', 'page-transform', 'jquery', 'slide-factory', 'config.js'],
 
       // TODO: make this better
       
-      $('#slideshow *[data-timecontainer][id][title]').each(function (index, timeContainer) {
+      $('#slideshow *[data-timecontainer][id]').each(function (index, timeContainer) {
         // containerIdToIndex[timeContainer.id] = index;
         containerIdToIndex[timeContainer.id] = timeContainer.timing;
       });
