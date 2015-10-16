@@ -1,56 +1,309 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    
-    <title>Herbarium</title>
-    
-    <!-- Styles: Bootstrap, custom -->
-    
-    <link rel="stylesheet" href="css/bootstrap.min.css"> </link>
-    <link rel="stylesheet" href="css/styles.css"> </link>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- JS - jQuery, require, BDR data (static) -->
+  <title>Herbarium</title>
 
-    <script src="js/cds-facet/jquery-2.1.4.min.js"></script>
-    <script src="js/require.js"></script>
-    <script src="../scripts/bdr-items.js"></script>
-  
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
+  <!-- Styles: Bootstrap, custom -->
+
+  <link rel="stylesheet" href="css/bootstrap.min.css"> </link>
+  <link rel="stylesheet" href="css/styles.css"> </link>
+
+  <!-- JS - jQuery, require, BDR data (static) -->
+
+  <script src="js/cds-facet/jquery-2.1.4.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="js/require.js"></script>
+  <script src="../scripts/bdr-items.js"></script>
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-  
-    <script>
-  
-    var DSL; 
-    
-    require.config({ baseUrl: '../../../scripts' });
-    
+
+  <script>
+    var DSL;
+
+    require.config({
+      baseUrl: '../../../scripts'
+    });
+
     $(function () {
-      require(['DSL'], function(dsl) {
-        
+      require(['DSL'], function (dsl) {
+
         DSL = dsl;
-        
+
         /*
         $('#dsl-navigation a').click(function () {
           dsl.message.send('goto', 'all', this.id);
         });*/
       });
     });
-    
-    </script>
-  </head>
+  </script>
+</head>
 
-  <body>
-    
-    <div class="container-fluid">
-      
+<body>
+  <nav class="navbar navbar-inverse navbar-static-top" id="heading">
+    <div class="navbar-inner" id="heading-wrapper">
+      <div class="navbar-header">
+
+        <span class="glyphicon glyphicon-grain" aria-hidden="true"></span>
+        <h1>HERBARIUM</h1>
+
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+      </div>
     </div>
-  </body>
+  </nav>
+
+  <nav class="navbar navbar-default" id="control-panel">
+    <div class="container-fluid" id="control-panel-content">
+      <div class="collapse navbar-collapse">
+
+        <div class="dropdown cp-content">
+          <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="#">Option 1</a>
+            </li>
+            <li><a href="#">Option 2</a>
+            </li>
+            <li><a href="#">Option 3</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="dropdown cp-content">
+          <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="#">Option 1</a>
+            </li>
+            <li><a href="#">Option 2</a>
+            </li>
+            <li><a href="#">Option 3</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="form-group" id="checkboxes">
+          <div class="checkbox-inline cp-content">
+            <label>
+              <input type="checkbox" value="">Option 1</label>
+          </div>
+          <div class="checkbox-inline cp-content">
+            <label>
+              <input type="checkbox" value="">Option 2</label>
+          </div>
+          <div class="checkbox-inline cp-content">
+            <label>
+              <input type="checkbox" value="">Option 3</label>
+          </div>
+        </div>
+
+
+        <div class="form-group cp-content selectlist">
+          <label for="sel1">Select list:</label>
+          <select class="form-control" id="sel1" style="clear:both">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+          </select>
+        </div>
+
+        <div class="form-group cp-content selectlist">
+          <label for="sel2">Select list:</label>
+          <select class="form-control" id="sel2" style="clear:both">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+          </select>
+        </div>
+
+        <div class="form-group cp-content selectlist">
+          <label for="sel3" style="float:left">Select list:</label>
+          <select class="form-control" id="sel3" style="clear:both">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container-fluid">
+    <div class="row" id="content">
+      <div class="col-md-3 col-xs-12" id="results-container">
+
+        <div id="results">
+          <div class="panel panel-success">
+            <div class="panel-heading">
+              <h2>Results <span class="badge">42</span></h2>
+            </div>
+
+            <div class="panel-body">
+              <ul class="list-group">
+                <li class="list-group-item">
+
+                  <img src="http://www.gaiahealthblog.com/wordpress1/wp-content/uploads/2014/01/pine-2012-12-5-PineNeedles1.jpg" align="left">
+                  <h5>Cras justo odio</h5>Found in Wakefield, RI, 2012. Professor E. E. Snick. ID 1231231:12</li>
+                <li class="list-group-item">
+                  <img src="http://www.dirtdoctor.com/pics/content_img.7517.img.jpg" align="left">
+                  <h5>Dapibus ac facilisis in</h5>Found in Newport, RI, 2010. Professor E. E. Snick. ID 1231421:33</li>
+                <li class="list-group-item">
+                  <img src="http://www.gardenaction.co.uk/images/trees/oaks/quercus-robur-leaf.jpg" align="left">
+                  <h5>Morbi leo risus</h5>Found in St. Paul, Minnesota, 1967. ID 23094:02</li>
+                <li class="list-group-item">
+                  <img src="http://www.gaiahealthblog.com/wordpress1/wp-content/uploads/2014/01/pine-2012-12-5-PineNeedles1.jpg" align="left">
+                  <h5>Porta ac consectetur ac</h5>Found in Providence, RI, 2010. Professor Bullhorn. ID 234234:11</li>
+                <li class="list-group-item">
+                  <img src="http://www.dirtdoctor.com/pics/content_img.7517.img.jpg" align="left">
+                  <h5>Vestibulum at eros</h5>Found in Cranston, RI, 2014. Professor Trey Ngendu. ID 23422:01</li>
+                <li class="list-group-item">
+                  <img src="http://www.gardenaction.co.uk/images/trees/oaks/quercus-robur-leaf.jpg" align="left">
+                  <h5>Cras justo odio</h5>Found in Cranston, RI, 2014. Professor Trey Ngendu. ID 23422:01</li>
+                <li class="list-group-item">
+                  <img src="http://www.gaiahealthblog.com/wordpress1/wp-content/uploads/2014/01/pine-2012-12-5-PineNeedles1.jpg" align="left">
+                  <h5>Dapibus ac facilisis in</h5>Found in Cranston, RI, 2014. Professor Trey Ngendu. ID 23422:01</li>
+                <li class="list-group-item">
+                  <img src="http://www.dirtdoctor.com/pics/content_img.7517.img.jpg" align="left">
+                  <h5>Morbi leo risus</h5>Found in Cranston, RI, 2014. Professor Trey Ngendu. ID 23422:01</li>
+                <li class="list-group-item">
+                  <img src="http://www.gardenaction.co.uk/images/trees/oaks/quercus-robur-leaf.jpg" align="left">
+                  <h5>Porta ac consectetur ac</h5>Found in Cranston, RI, 2014. Professor Trey Ngendu. ID 23422:01</li>
+                <li class="list-group-item">
+                  <img src="http://www.gaiahealthblog.com/wordpress1/wp-content/uploads/2014/01/pine-2012-12-5-PineNeedles1.jpg" align="left">
+                  <h5>Vestibulum at eros</h5>Found in Cranston, RI, 2014. Professor Trey Ngendu. ID 23422:01</li>
+                <li class="list-group-item">
+                  <img src="http://www.dirtdoctor.com/pics/content_img.7517.img.jpg" align="left">
+                  <h5>Cras justo odio</h5>Found in Cranston, RI, 2014. Professor Trey Ngendu. ID 23422:01</li>
+                <li class="list-group-item">
+                  <img src="http://www.gardenaction.co.uk/images/trees/oaks/quercus-robur-leaf.jpg" align="left">
+                  <h5>Dapibus ac facilisis in</h5>Found in Cranston, RI, 2014. Professor Trey Ngendu. ID 23422:01</li>
+                <li class="list-group-item">
+                  <img src="http://www.gaiahealthblog.com/wordpress1/wp-content/uploads/2014/01/pine-2012-12-5-PineNeedles1.jpg" align="left">
+                  <h5>Morbi leo risus</h5>Found in Cranston, RI, 2014. Professor Trey Ngendu. ID 23422:01</li>
+                <li class="list-group-item">
+                  <img src="http://www.dirtdoctor.com/pics/content_img.7517.img.jpg" align="left">
+                  <h5>Porta ac consectetur ac</h5>Found in Cranston, RI, 2014. Professor Trey Ngendu. ID 23422:01</li>
+                <li class="list-group-item">
+                  <img src="http://www.gardenaction.co.uk/images/trees/oaks/quercus-robur-leaf.jpg" align="left">
+                  <h5>Vestibulum at eros</h5>Found in Cranston, RI, 2014. Professor Trey Ngendu. ID 23422:01</li>
+                <li class="list-group-item">
+                  <img src="http://www.gaiahealthblog.com/wordpress1/wp-content/uploads/2014/01/pine-2012-12-5-PineNeedles1.jpg" align="left">
+                  <h5>Cras justo odio</h5>Found in Cranston, RI, 2014. Professor Trey Ngendu. ID 23422:01</li>
+                <li class="list-group-item">
+                  <img src="http://www.dirtdoctor.com/pics/content_img.7517.img.jpg" align="left">
+                  <h5>Dapibus ac facilisis in</h5>Found in Cranston, RI, 2014. Professor Trey Ngendu. ID 23422:01</li>
+                <li class="list-group-item">
+                  <img src="http://www.gardenaction.co.uk/images/trees/oaks/quercus-robur-leaf.jpg" align="left">
+                  <h5>Morbi leo risus</h5>Found in Cranston, RI, 2014. Professor Trey Ngendu. ID 23422:01</li>
+                <li class="list-group-item">
+                  <img src="http://www.gaiahealthblog.com/wordpress1/wp-content/uploads/2014/01/pine-2012-12-5-PineNeedles1.jpg" align="left">
+                  <h5>Porta ac consectetur ac</h5>Found in Cranston, RI, 2014. Professor Trey Ngendu. ID 23422:01</li>
+                <li class="list-group-item">
+                  <img src="http://www.dirtdoctor.com/pics/content_img.7517.img.jpg" align="left">
+                  <h5>Vestibulum at eros</h5>Found in Cranston, RI, 2014. Professor Trey Ngendu. ID 23422:01</li>
+                <li class="list-group-item">
+                  <img src="http://www.gardenaction.co.uk/images/trees/oaks/quercus-robur-leaf.jpg" align="left">
+                  <h5>Cras justo odio</h5>Found in Cranston, RI, 2014. Professor Trey Ngendu. ID 23422:01</li>
+                <li class="list-group-item">
+                  <img src="http://www.gaiahealthblog.com/wordpress1/wp-content/uploads/2014/01/pine-2012-12-5-PineNeedles1.jpg" align="left">
+                  <h5>Dapibus ac facilisis in</h5>Found in Cranston, RI, 2014. Professor Trey Ngendu. ID 23422:01</li>
+                <li class="list-group-item">
+                  <img src="http://www.dirtdoctor.com/pics/content_img.7517.img.jpg" align="left">
+                  <h5>Morbi leo risus</h5>Found in Cranston, RI, 2014. Professor Trey Ngendu. ID 23422:01</li>
+                <li class="list-group-item">
+                  <img src="http://www.gardenaction.co.uk/images/trees/oaks/quercus-robur-leaf.jpg" align="left">
+                  <h5>Porta ac consectetur ac</h5>Found in Cranston, RI, 2014. Professor Trey Ngendu. ID 23422:01</li>
+                <li class="list-group-item">
+                  <img src="http://www.gaiahealthblog.com/wordpress1/wp-content/uploads/2014/01/pine-2012-12-5-PineNeedles1.jpg" align="left">
+                  <h5>Vestibulum at eros</h5>Found in Cranston, RI, 2014. Professor Trey Ngendu. ID 23422:01</li>
+                <li class="list-group-item">
+                  <img src="http://www.dirtdoctor.com/pics/content_img.7517.img.jpg" align="left">
+                  <h5>Cras justo odio</h5>Found in Cranston, RI, 2014. Professor Trey Ngendu. ID 23422:01</li>
+                <li class="list-group-item">
+                  <img src="http://www.gardenaction.co.uk/images/trees/oaks/quercus-robur-leaf.jpg" align="left">
+                  <h5>Dapibus ac facilisis in</h5>Found in Cranston, RI, 2014. Professor Trey Ngendu. ID 23422:01</li>
+                <li class="list-group-item">
+                  <img src="http://www.gaiahealthblog.com/wordpress1/wp-content/uploads/2014/01/pine-2012-12-5-PineNeedles1.jpg" align="left">
+                  <h5>Morbi leo risus</h5>Found in Cranston, RI, 2014. Professor Trey Ngendu. ID 23422:01</li>
+                <li class="list-group-item">
+                  <img src="http://www.dirtdoctor.com/pics/content_img.7517.img.jpg" align="left">
+                  <h5>Porta ac consectetur ac</h5>Found in Cranston, RI, 2014. Professor Trey Ngendu. ID 23422:01</li>
+                <li class="list-group-item">
+                  <img src="http://www.gardenaction.co.uk/images/trees/oaks/quercus-robur-leaf.jpg" align="left">
+                  <h5>Vestibulum at eros</h5>Found in Cranston, RI, 2014. Professor Trey Ngendu. ID 23422:01</li>
+              </ul>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-md-9 col-xs-12" id="visuals">
+        <div id="visual-container">
+          <div id="visual-header">
+            <h1>Visuals</h1>
+            <form class="navbar-form" role="search" id="search">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+                <div class="input-group-btn">
+                  <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div class="col-md-6 col-xs-12 facet" id="visual-col-1">
+            <h2>Dates</h2>
+            <img src="http://www.spotifyartists.com/site/wp-content/uploads/2013/10/Screen-Shot-2015-03-02-at-11.03.07.png" 
+                 class="img-responsive">
+          </div>
+
+          <div class="col-md-6 col-xs-12 facet" id="visual-col-2">
+            <h2>Taxonomies</h2>
+            <img src="http://yoast-mercury.s3.amazonaws.com/uploads/2009/06/taxonomies1.jpg" class="img-responsive">
+          </div>
+
+          <div class="col-md-6 col-xs-12 facet" id="visual-col-3">
+            <h2>Localities</h2>
+            <img src="http://barbwire.com/wp-content/uploads/2014/04/huge-usa-map.gif" class="img-responsive">
+          </div>
+
+          <div class="col-md-6 col-xs-12 facet" id="visual-col-4">
+            <h2>Collectors</h2>
+            <div id="collectors-panel">
+              <p>Paul Thomas <span class="badge">57</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Leslie Wright <span class="badge">56</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dylan Peterson <span class="badge">40</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clare McKenna <span class="badge">40</span>
+              </p>
+              <p>Drew Barry <span class="badge">57</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;John Keats <span class="badge">56</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lincoln Nebraska <span class="badge">40</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
 </html>

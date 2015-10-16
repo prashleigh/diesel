@@ -1,4 +1,8 @@
 
+
+/* FACET STYLES */
+
+
 .background.bar {
   fill: #ccc;
 }
@@ -44,3 +48,208 @@
 #map {
   height: 377px;
 }
+
+
+
+/* CISSY LAYOUT STYLES */
+
+ h1,
+    h2 {
+      font-family: georgia;
+    }
+    
+    h5 {
+      font-weight: bold;
+      color: green;
+    }
+    
+    #wrapper {
+      width: 100%;
+      margin: 0 auto;
+    }
+    
+    #heading {
+      background-color: #BEBEC4;
+    }
+    
+    #heading-wrapper {
+      width: 100%;
+    }
+    
+    .glyphicon-grain {
+      font-size: 80px;
+      padding-bottom: 2%;
+      color: green;
+      float: left;
+    }
+    
+    .navbar {
+      margin-bottom: 0;
+    }
+    
+    .navbar-toggle {
+      margin-top: 20px;
+    }
+    
+    #heading {
+      width: 100%;
+      text-align: left;
+      float: left;
+    }
+    
+    #heading h1 {
+      float: left;
+    }
+    
+    #control-panel {
+      width: 100%;
+      background-color: #59595E;
+    }
+    
+    #control-panel-content {
+      width: 90%;
+    }
+    
+    .dropdown {
+      float: right;
+      padding: 20px 30px 0 0;
+    }
+    
+    .checkbox-inline {
+      float: right;
+      padding-right: 30px;
+      color: white;
+      padding-top: 20px;
+    }
+    
+    .selectlist {
+      float: right;
+      display: inline-block;
+      color: white;
+      padding: 20px 30px 10px 0;
+      margin-top: -10px;
+    }
+    
+    .selectlist label {
+      clear: both;
+      display: inline-block;
+    }
+    
+    .cp-content {
+      float: right;
+    }
+    
+    #results-container {
+      clear: both;
+    }
+    
+    #results {
+      margin-top: 5%;
+      width: 95%;
+      margin-left: 5%;
+    }
+    
+    #results img {
+      height: 60px;
+      width: 60px;
+      margin-right: 10px;
+    }
+    
+    #results {
+      line-height: 100%;
+    }
+    
+    .list-group-item {
+      margin: 0;
+      padding: 5px;
+      min-height: 70px;
+    }
+    
+    #visuals {
+      float: left;
+      border-radius: 10px;
+      border: 1px solid green;
+      padding-bottom: 5%;
+      margin-top: 1%;
+    }
+    
+    #visual-container {
+      width: 95%;
+      margin-left: 5%;
+    }
+    
+    #visual-header {
+      padding-left: 3%;
+    }
+    
+    #visual-col-1 {
+      clear: both;
+    }
+    
+    #visual-col-4 {
+      margin-top: 40px;
+    }
+    
+    #visuals h1 {
+      float: left;
+    }
+    
+    #collectors-panel {
+      margin-top: 40px;
+      line-height: 40px;
+    }
+    
+    .facet img {
+      width: 600px;
+    }
+    
+    #search {
+      padding-top: 20px;
+      float: left;
+    }
+    
+    .panel-heading {
+      margin: 0;
+    }
+    
+    .panel-body {
+      max-height: 900px;
+      overflow-y: scroll;
+    }
+    
+    @media (max-width: 900px) {
+      #results img {
+        display: none;
+      }
+      #results {
+        width: 100%;
+      }
+      .panel-body {
+        max-height: 400px;
+      }
+      #visuals {
+        margin-left: 5%;
+      }
+      .glyphicon-grain {
+        font-size: 40px;
+        padding-top: 15px;
+      }
+      h1 {
+        font-size: 30px;
+      }
+      .cp-content {
+        float: left;
+        padding: 10px 30px0 0;
+      }
+      .form-control {
+        display: inline-block;
+        width: auto;
+        margin: 0;
+      }
+      .form-group {
+        display: inline-block;
+        width: auto;
+        margin-bottom: 0;
+        vertical-align: middle;
+      }
+    }
