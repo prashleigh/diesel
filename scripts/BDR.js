@@ -26,10 +26,7 @@ define(['jquery'], function ($) {
       @param {Number} options.height Height of image in px
       @return {String} URL of image
       
-      
-      
-      
-      NOTE: THIS IS NOT WORKNG - see hard-coded PID
+      NOTE: THIS IS NOT WORKING - see hard-coded PID
   */
 
   getImageUrl = function (id, options) {
