@@ -31,14 +31,16 @@ define(['message', 'page-transform', 'jquery', 'slide-factory', 'config.js'],
         pathHeirarchy,
         match1 = /role=([^&#]*)/.exec(window.location.search);
     
-    if (match1 !== null) { 
+    if (match1 !== null) {
       role = match1[1]; 
-    } else {      
+    } else {
+      /*
       // TEMP - just grab filename
       pathHeirarchy = window.location.pathname.split('/')
                             .filter(function (x) { return x !== ''; });
       role = (/^(\w+)(?:\.\w{3,4})?$/.exec(pathHeirarchy.pop()))[1];
-      
+      */
+      role = 'wall'; // TEMP
     } 
     
     /********
