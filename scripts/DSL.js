@@ -163,8 +163,10 @@ define(['message', 'page-transform', 'jquery', 'slide-factory', 'config.js'],
           timeContainer.getNode().id !== undefined &&
           timeContainer.getNode().title !== '') {
         heading = timeContainer.getNode().title;
-      } else { 
-        heading = null; 
+      } else if(timeContainer.getNode().id !== undefined) {
+        heading = timeContainer.getNode().id;
+      } else {
+        heading = null;
       }
 
       // If the element has a heading text, then add to nav
