@@ -1,32 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Commencement Navigation</title>
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="../../style/bootstrap.min.css"> </link>
-    <!-- jQuery -->
-    <script src="../../scripts/jquery.js"></script>
-    <script src="../../scripts/require.js"></script>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Commencement Navigation</title>
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="../../style/bootstrap.min.css"> </link>
+  <!-- jQuery -->
+  <script src="../../scripts/jquery.js"></script>
+  <script src="../../scripts/require.js"></script>
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <script>
-  
-    var DSL; 
-    
-    require.config({ baseUrl: '../../scripts' });
-    
-    $(function () {  
-      require(['DSL'], function(dsl) {
-        
+  <script>
+    var DSL;
+
+    require.config({
+      baseUrl: '../../scripts'
+    });
+
+    $(function () {
+      require(['DSL'], function (dsl) {
+
         DSL = dsl;
 
         $('#dsl-navigation a').click(function () {
@@ -34,56 +35,32 @@
         });
       });
     });
-    
   </script>
-    <style>
-      body{
-        margin:5%
-      }</style>
-  </head>
+  <style>
+    body {
+      margin: 5%
+    }
+  </style>
+</head>
 
-  <body>
-    <h1>Herbarium Commencement Forum</h1>
-    <div class="list-group" id="dsl-navigation">
-      <a id="title" class="list-group-item">Opening title
+<body>
+  <h1>Herbarium Commencement Forum</h1>
+  <div class="list-group" id="dsl-navigation">
+    <a id="title" class="list-group-item">Opening title
         slide</a>
-      <a id="library-intro" class="list-group-item">Opening remarks from Patrick</a><a id="what-is"
-        class="list-group-item">What is a Herbarium?</a>
-      <a id="timeline" class="list-group-item">Start of timeline → 1869</a>
-      <a id="y1877" class="list-group-item">→ 1877</a>
-      <a id="y1879" class="list-group-item">→ 1879</a>
-      <a id="y1880" class="list-group-item">→ 1880</a>
-      <a id="y1881" class="list-group-item">→ 1881</a>
-      <a id="y1883" class="list-group-item">→
-        1883</a>
-      <a id="y1890" class="list-group-item">→ 1890</a>
-      <a id="y1894" class="list-group-item">→ 1894</a>
-      <a id="y1895" class="list-group-item">→ 1895</a>
-      <a id="y1911" class="list-group-item">→ 1911</a>
-      <a id="y1920" class="list-group-item">→
-        1920</a>
-      <a id="y1938" class="list-group-item">→ 1938:1</a>
-      <a id="y1938-2" class="list-group-item">→ 1938:2</a>
-      <a id="y1987" class="list-group-item">→ 1987</a>
-      <!--<a id="y19-\-" class="list-group-item">→ 19-\-</a>-->
-      <a id="y2008" class="list-group-item">→
-        2008</a>
-      <a id="y2013" class="list-group-item">→ 2013</a>
-      <a id="world" class="list-group-item">World coverage map</a>
-      <a id="digitization" class="list-group-item">The digitization process</a>
-      <a id="card-blowups" class="list-group-item">→ Card blow-ups</a>
-      <a id="activity-1" class="list-group-item">Activity - GO!</a>
-      <a id="activity-2" class="list-group-item">Activity results</a><a id="why"
-        class="list-group-item">Why digitize?</a>
-      <a id="cat-swamp-map" class="list-group-item">Start Cat Swamp map sequence</a>
-      <a id="cat-swamp-map-historical" class="list-group-item">→ Historical map</a>
-      <a id="cat-swamp-map-contemporary" class="list-group-item">→ Contemporary map</a>
-      <a id="cat-swamp-map-satellite" class="list-group-item">→ Satellite map</a>
-      <a id="treemap" class="list-group-item">Cat swamp species</a>
-      <a id="cat-swamp-specimen-2" class="list-group-item">→ Habenaria lacera</a><a
-        id="cat-swamp-specimen-3" class="list-group-item">→ Caltha palustris</a><a
-        id="cat-swamp-specimen-4" class="list-group-item">→ Carex Sterilis</a><a
-        id="cat-swamp-specimen-1" class="list-group-item">→ Berberis vulgaris</a>
-      <a id="future" class="list-group-item">Future Research</a></div>
-  </body>
+    <a id="what-is" class="list-group-item">What is a Herbarium?</a>
+    <a id="olney" class="list-group-item">Stephen Olney</a>
+    <a id="world" class="list-group-item">World coverage map</a>
+    <a id="digitization" class="list-group-item">The digitization process</a>
+    <a id="card-blowups" class="list-group-item">→ Card blow-ups</a>
+    <a id="bdr-dsl" class="list-group-item">BDR / DSL</a>
+    <a id="cat-swamp-map" class="list-group-item">Cat Swamp map sequence</a>
+    <a id="cat-swamp-map-historical" class="list-group-item">→ Historical map</a>
+    <a id="cat-swamp-map-satellite" class="list-group-item">→ Satellite map</a>
+    <a id="treemap" class="list-group-item">Cat swamp species</a>
+    <a id="cat-swamp-specimen-2" class="list-group-item">→ Habenaria lacera</a><a id="cat-swamp-specimen-3" class="list-group-item">→ Caltha palustris</a><a id="cat-swamp-specimen-4" class="list-group-item">→ Carex Sterilis</a><a id="cat-swamp-specimen-1" class="list-group-item">→ Berberis vulgaris</a>
+    <a id="future" class="list-group-item">Future Research</a>
+  </div>
+</body>
+
 </html>
