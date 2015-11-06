@@ -9,36 +9,88 @@
     <link rel="stylesheet" type="text/css" href="../../style/main.css" />
     <link rel="stylesheet" type="text/css" href="main.css" />
     <script data-main="../../scripts/main" src="../../scripts/require.js"></script>
+    <style>
+      span {
+        font-family:Arial Narrow;
+
+      }
+      .top-right {
+        text-align:left;
+        line-height:10%;
+        margin-left:2%;
+      }
+      .top-right p {
+        font-family:Arial Narrow;
+        font-size:.3em;
+      }
+      .top-right h2 {
+        font-family:Arial Narrow;
+        font-weight:normal;
+        font-size:.8em;
+      }
+      .middle p {
+        font-family:Arial Narrow;
+        font-size:.8em;
+        text-align:left;
+        margin-left:2%;
+      }
+      .picture {
+        background-image: url('corso.jpg');
+        background-repeat:no-repeat;
+        background-size:cover;
+        background-position:100% 100%;
+      }
+    </style>
   </head>
   <body class="crossfade">
-    <div id="slideshow" class="highlight" 
-         data-timecontainer="seq" data-repeatcount="indefinite"
-         data-timeaction="intrinsic" data-navigation="hash">
+    <div id="slideshow" class="highlight" data-timecontainer="seq" data-repeatcount="indefinite"
+      data-timeaction="intrinsic" data-navigation="hash">
       
       <!--  Gregory Corso slide  -->
       
-      <div id="corso" data-timecontainer="par" 
-           class="r1 c1 w4 h3"
-           style="background-color:black">
+      <div id="corso" class="c1 r1 w4 h3" data-timecontainer="par" title="Title Slide" style="background-color:black">
         
         <!-- Show on wall only -->
         
-        <div data-timecontainer="par" data-role="wall">
-          <div class="c1 r1 w4 h3 textpanel"><span>Lorem Ipsum</span></div>
-        </div>
+        <div data-timecontainer="par" data-role="wall" 
+           class="c1 r1 h3 w4" style="background-color: black;">
+          <div class="c1 r1 w3 h1 textpanel" style="background-color:black">
+          <span class="top-right">
+          <p>From the Brown Archives</p>
+          <h2>The Gregory Corso papers</h2></span></div>
         
+        
+      
+          <div class="c1 r2 w1 h1 textpanel" style="background-color:black">
+          <span class="middle"><p>American poet, active from the 1950s</p></span></div>
+        
+
+        
+          <div class="c2 r2 w1 h1 textpanel" style="background-color:black">
+          <span class="middle"><p>Youngest of the inner circle of Beat Generation writers (with Jack Kerouac, Allen Ginsberg, and William S. Burroughs)</p></span></div>
+        
+
+          <div class="c3 r2 w1 h1 textpanel" style="background-color:black">
+          <span class="middle"><p>Lived 1930-2001</p></span></div>
+
+
+     
+          <div class="c4 r1 w1 h3 textpanel picture" style="background-color:black">
+          </div>
+          </div>
+     
         <!-- Show on cart -->
         
         <div data-role="cart" data-timecontainer="par" class="fullscreen-textpanel">
-          <span>Hello world</span>
+          <span>Gregory Corso</span>
         </div>
         
         <!-- Show on mobile -->
         
         <div data-role="mobile" data-timecontainer="par" class="fullscreen-textpanel">
-          <span>Hello world</span>
+          <span>Gregory Corso</span>
         </div>
       </div>
-    </div>
+      </div>
   </body>
 </html>
