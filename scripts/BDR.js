@@ -13,6 +13,11 @@ define(['jquery'], function ($) {
         image: ROOT + 'adore-djatoka/resolver/',
         itemMetadata: function (id) { return ROOT + 'api/items/' + id; } 
       },
+      FIELD_NAMES = {
+        pid: 'pid',
+        coll: 'ir_collection_id'
+        // FILL IN MORE
+      },
       getImageUrl, 
       getImageDomNode, 
       getItemMetadata;
@@ -78,11 +83,88 @@ define(['jquery'], function ($) {
    * suitable for thumbnails
    */
   
+  
+  function fieldName(easyName) {
+    return FIELD_NAMES[easyName] === undefined ? easyName : FIELD_NAMES[easyName];
+  }
+  
+  
+  // Get items based on search criteria
+  // Example: search({ a: 1, b: 2 }, ['c','d'], function () { console.log('all done') })
+  
+  // FINISH THIS
+  
+  var search = function(query, returnFields, onComplete) {
+    
+    var queryUrl, returnFieldUrl, url;
+    
+    queryUrl = Object.getOwnPropertyNames(query).map(fieldName).join(' ');
+    returnFieldUrl = returnFields.map(fieldName).join(',');
+    
+    url = ROOT + 'api/search/?' +
+          'q=' + queryUrl +
+          '&fl=' + returnFieldsUrl;
+    
+    console.log(url);
+    
+    // TO DO : actually get the data -- see the routine in bdr-herbarium
+  }
+  
+  // Get facets based on search criteria
+  // Example: search({ a: 1, b: 2 }, ['c','d'], function () { console.log('all done') })
+  
+  var getFacets = function(query, facetFields, onComplete) {
+    
+    var queryUrl, facetFieldUrls, url;
+
+    queryUrl = Object.getOwnPropertyNames(query)
+                .map(function (f) { return fieldName(f) + ':"' + query[f] + '"' })
+                .join(' ');
+    
+    facetFieldUrls = facetFields.map(function (f) { return '&facet.field=' + fieldName(f) }).join('');
+    
+    url = ROOT + 'api/search/?' +
+          'q=' + queryUrl +
+          '&facet=true' + facetFieldUrls +
+          '&callback=?';
+    
+    $.getJSON(url, function(r) {
+      var facetsAsObject = [],
+          facetDB = r.facet_counts.facet_fields;
+      
+      if (false) {  // Activate this if you want a hash -- to be tested      
+        Object.getOwnPropertyNames(facetDB).forEach(function (facetName) {
+          var i = 0;
+          facetsAsObject[facetName] = {};
+          for (i = 0; i < facetDB[facetName].length; i += 2) {
+            facetsAsObject[facetName][facetDB[facetName][i]] = facetDB[facetName][i + 1];
+          }
+        });
+      }
+      
+      onComplete(r.facet_counts.facet_fields);
+    });
+  }
+  
+  
+  
   console.log('BDR module loaded'); // TEMP
   
+  window.BDR = {
+    getImageUrl: getImageUrl,
+    getImageDomNode: getImageDomNode,
+    getItemMetadata: getItemMetadata,
+    search: search,
+    getFacets : getFacets
+  };
+  
+  return window.BDR;
+  
+  /*
   return {
     getImageUrl: getImageUrl,
     getImageDomNode: getImageDomNode,
-    getItemMetadata: getItemMetadata
-  };
+    getItemMetadata: getItemMetadata,
+    search: search
+  };*/
 });
