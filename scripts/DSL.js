@@ -8,7 +8,7 @@ define(['message', 'page-transform', 'jquery', 'slide-factory', 'config.js'],
        function(getMessageObject, getPageTransformFunction, $, slideFactory, CONFIG) {
 
   'use strict';
-  
+ 
   var returnObject = {}; // What eventually gets returned as public methods
                          // CURRENTLY NOT USED - but maybe it should be ...
   
@@ -80,6 +80,8 @@ define(['message', 'page-transform', 'jquery', 'slide-factory', 'config.js'],
   /** Initialize message handlers 
       (called once DOM is loaded, timesheetsjs is loaded, and transformations are done) */
 
+  // Q: Should this be in the message module?
+
   function initMessageHandlers (clientRole, messageObject, CONFIG) {
 
     var roleMessageHandlers, messageName, slideShowContainer, 
@@ -130,7 +132,7 @@ define(['message', 'page-transform', 'jquery', 'slide-factory', 'config.js'],
       window.dslSlideShowContainer = slideShowContainer;
     }
 
-    /* APP HANDLERS (defined in config.js) */
+    /* ASSIGN APP HANDLERS (defined in config.js under CONFIG.messageHandlers) */
 
     roleMessageHandlers = CONFIG.messageHandlers[clientRole];
 
@@ -234,12 +236,14 @@ define(['message', 'page-transform', 'jquery', 'slide-factory', 'config.js'],
   
   function setupOnloadEvents (getPageTransformFunction, clientRole, messageObject, CONFIG) {
     
+    // If there is a slideshow container ...
+    
     if (document.getElementById(CONFIG.slideshowContainerId) !== null) {
       
       var transformPage = getPageTransformFunction(clientRole);
       
       $(document).ready(function () {
-
+        
         // Generate and/or transform DOM (model)
 
         require(['DSL'], function (dsl) {
@@ -287,8 +291,7 @@ define(['message', 'page-transform', 'jquery', 'slide-factory', 'config.js'],
         });*/
         
         window.setTimeout(function () {
-          console.log(document.getElementById('slideshow').innerHTML);
-          require(['timesheets-main'], function () { 
+          require(['timesheets-main'], function () {
             initMessageHandlers(clientRole, messageObject, CONFIG);
           });
         }, 1000);
@@ -336,5 +339,9 @@ define(['message', 'page-transform', 'jquery', 'slide-factory', 'config.js'],
     };
   }
 
-  return init(getMessageObject, getPageTransformFunction, CONFIG);
+  window.DSL = init(getMessageObject, getPageTransformFunction, CONFIG);
+  
+  return window.DSL;
+  
+  // return init(getMessageObject, getPageTransformFunction, CONFIG);
 });

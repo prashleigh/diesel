@@ -11,6 +11,6 @@ console.log('* Entering main.js');
   
   require(['DSL', 'BDR'], function(dsl, bdr) {
     DSL = dsl;
-    BDR = bdr;
+    // BDR = bdr;
   });
 })();
