@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script data-main="../../../../scripts/main" src="../../../../scripts/require.js"></script>
+  <link rel="stylesheet" href="inspire-tree/inspire-tree.css"></link>
+  <style>
+  
+    body { 
+      background: black;
+      color: white;
+      font-family: Helvetica Nueue, sans-serif;
+      padding-top: 70px;
+    }
+    
+    h1 {
+      position: fixed;
+      z-index: 100000;
+      top: 0;
+      height: 70px;
+      margin-top: 0;
+      margin-left: 0;
+      padding-left: 1em;
+      background-color: #888;
+      color: black;
+      width: 100%;
+      font-size: 30px;
+      line-height: 70px;
+    }
+    
+    #details {
+      position: fixed;
+      top: 70px;
+      right: 0;
+      width: 50%; 
+      height: 1000px;
+      border: 0;
+      /*border-left: 1px solid red;*/
+      overflow: scroll;
+      z-index: 100000;
+    }
+  
+  </style>
+</head>
+
+<body>  
+  <h1>Explore the Brown University Herbarium</h1>
+  <iframe src="" id="details"></iframe>
+  <button id="home">Show all</button>
+  <div class="tree"></div>
+
+<!--
+  <table border="0" width="100%">
+    <tr>
+    <td width="50%" style="vertical-align: top">
+  <button id="home">Show all families</button>
+  <div class="tree"></div>      
+      </td>
+      <td style="vertical-align: top">
+        <iframe src="" style="width:100%; height:5000px; border: none;" id="details"></iframe>
+      </td>
+    </tr>
+  </table>
+-->
+
+</body>
+  
+<script>
+    
+ /* require.config({
+    paths: {
+    jquery: '../bower_components/jquery/dist/jquery.min',
+    inspireTree: '../build/inspire-tree'
+    }
+  });*/
+
+  
+  /*
+  
+  Node Configuration
+
+  text - Text used in display.
+  id - Unique ID. If missing, one will be generated.
+  li.attributes - Custom attributes for this node's root li.
+  itree - An object used to describe initial tree values:
+  icon - Custom icon for the anchor.
+  state.collasped - Set initial collapsed state.
+  state.hidden - Set initial visibility.
+  state.removed - Soft removed. Never shown until restored.
+  state.selected - Set initial selection.
+  
+  use: tree.addNode({ text: 'Example' });
+  
+  
+  MAY WANT TO REPLACE WITH BOOTSTRAP HIERARCHICAL TREE STYLES:
+  https://github.com/jonmiles/bootstrap-treeview
+  
+  */
+  
+  
+  require(['jquery','inspire-tree/inspire-tree.min.js', 'bdr-herbarium.js', 'DSL'], function($, InspireTree, _, _) {
+    
+    console.log();
+    
+    function initTree () {
+      
+      BDR.herbarium.getFamilyFacets(function (f) {
+        
+        var tree, i, nodes = [];
+            
+        for (i = 0; i < f.length; i += 2) {
+          nodes.push({ text: f[i] + ' (' + f[i + 1] + ')',
+                       type: 'family',
+                       value: f[i] });
+        }
+        
+        tree = new InspireTree({
+          target: '.tree',
+          data: nodes,
+          dynamic: true,
+          multiselect: false,
+          sort: 'value'
+        });        
+
+        // Run when loading children
+
+        tree.config.data = function(node, resolve, reject) {
+          
+          var type, qy, parent = node;
+          
+          switch(parent.type) {
+          case 'family':
+              type = 'genus'; 
+              qy = { family: parent.value }
+              break;
+          case 'genus':
+              type = 'species'; 
+              qy = { family: parent.getParent().value, genus: parent.value }
+              break;
+          }
+          
+          BDR.herbarium.getTaxFacets(qy, function (facets) {
+            var childNodes = [], i;
+            for (i = 0; i < facets[type].length; i += 2) {
+              if (facets[type][i + 1] > 0)
+                childNodes.push({ text: facets[type][i], type: type, value: facets[type][i] });
+            }
+            resolve(childNodes);
+            parent.expand();
+          });
+        }
+        
+        // Click function
+        
+        tree.on('node.click', function(event, node) {
+          
+          var taxQuery = {};
+          
+          // Send message to wall
+          
+          taxQuery[node.type] = node.value;
+          if (node.hasParent()) {
+            taxQuery[node.getParent().type] = node.getParent().value;
+            if (node.getParent().hasParent())
+              taxQuery[node.getParent().getParent().type] = node.getParent().getParent().value;
+          }
+          
+          DSL.message.send('tax-update', 'wall', JSON.stringify(taxQuery));
+          
+          // Load details
+          
+          $('#details').attr('src', 'details/?' + 
+                             (taxQuery.family ? taxQuery.family + ' ' : '') + 
+                             (taxQuery.genus ? taxQuery.genus + ' ' : '') + 
+                             (taxQuery.species ? taxQuery.species + ' ' : '') );
+          
+          // Load child nodes on tree
+          
+          if (node.type !== 'species') {
+            node.loadChildren();
+          } else {
+            // Generate species info here
+          }
+        });
+      })
+    }
+
+    
+    $('#home').click(function () {
+      DSL.message.send('tax-update', 'wall', '{}');
+    });
+    
+    initTree();
+  });
+    
+</script>
+</html>

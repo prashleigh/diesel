@@ -1,0 +1,229 @@
+/*
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: auto;
+  position: relative;
+  background: #aaa;  
+  overflow: hidden;
+}
+*/
+
+/* OVERALL LAYOUT FOR WALL */
+
+body {
+  width:7680px;
+  height:3240px;
+  background-color: #888;
+  overflow: hidden;
+}
+
+.test {
+  transform: scale(0.17);
+  transform-origin: 0 0;
+}
+
+#treemap {
+  position: absolute;
+  top: 0; left: 0;
+  width: 7680px;
+  height: 3240px;
+}
+
+#treemap #treetitle {
+  position: absolute;
+  top: 0; left: 0;
+  width:7680px;
+  height:100px;
+  line-height: 100px;
+  font-size: 60px;
+  color: white;
+  margin-left: 0.6em;
+}
+
+#treemap #treeroot {
+  position: absolute;
+  top: 100px; left: 0;
+  width:7680px;
+  height:3140px;
+}
+
+/* GLOBAL NODE AND LABEL STYLES */
+
+.node,
+.nodelabel {
+  /* border: solid 1px white; */
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 30px;
+  border: none;
+  overflow: hidden;
+  position: absolute;
+  /*text-indent: 2px;*/
+  /* background: transparent; */
+}
+
+.labels .nodelabel {
+  color: white;
+  /*text-shadow: 0.1em 0.1em black;*/
+  /*font-size: 250%;*/
+  padding-top: 1em;
+}
+
+.labels .nodelabel.undefined {
+  display: none;
+}
+
+.labels .nodelabel span {
+  margin-left: 1em;
+}
+
+.node {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+/* Main labels have a gray BG */
+
+.depth-root .nodelabel.family span,
+.depth-family .nodelabel.genus span,
+.depth-genus .nodelabel.species span,
+.depth-species .nodelabel.species span {
+  background-color: rgba(0,0,0,0.5);
+}
+
+/* Z-index layering: labels on top */
+
+.node.family span {
+  z-index: 10000;
+}
+
+.node.genus span {
+  z-index: 9999;
+}
+
+.node.species span {
+  z-index: 9998;
+}
+
+.labels .nodelabel {
+  z-index: 9997;
+}
+
+/* Tile background effect for lowest grouping */
+
+
+.depth-root .node.family,
+.depth-family .node.genus {
+  background-color: black;
+  border-radius: 1em;
+  margin: 0;
+}
+
+.depth-genus #treeroot,
+.depth-species #treeroot {
+  background-color: black;
+}
+
+/*
+
+.depth-root .node.family,
+.depth-family .node.genus,
+.depth-genus .node.species {
+  background-color: black;
+  border-radius: 1em;
+  margin: 0;
+}
+*/
+
+/* Hide upper hierarchical units */
+
+.depth-family .node.family,
+.depth-genus .node.family,
+.depth-genus .node.genus,
+.depth-species .node.family {
+  display: none;
+}
+
+/* Hide labels non-relevant hierarchical units */
+
+.depth-root .nodelabel.genus,
+.depth-root .nodelabel.species,
+.depth-family .nodelabel.family,
+.depth-family .nodelabel.species,
+.depth-genus .nodelabel.family,
+.depth-genus .nodelabel.genus,
+.depth-species .nodelabel {
+  display: none;
+}
+
+/* Center labels at genus level */
+
+.depth-genus .nodelabel.species {
+  text-align: center;
+}
+
+/* ROOT DEPTH */
+
+.depth-root .node.genus {
+  /*display: none;*/
+  /*font-size: 80%;*/
+  /*position:relative;*/
+  /*top: 1em;*/
+}
+
+.depth-root .node.species {
+  /*display: none;*/
+}
+
+.depth-root .nodelabel.family {
+
+}
+
+.depth-root .nodelabel.genus {
+  /*display: none;*/
+}
+
+.depth-root .nodelabel.species {
+  /*display: none;*/
+}
+
+/* Family depth */
+
+.depth-family .nodelabel.family {
+  /*display: none;*/
+}
+
+.depth-family .nodelabel.genus {
+  /*font-size: 50%;*/
+}
+
+.depth-family .nodelabel.species {
+  /*display: none;*/
+}
+
+/* Genus depth */
+
+.depth-genus .nodelabel.family {
+  /*display: none;*/
+}
+
+.depth-genus .nodelabel.genus {
+  /*display: none;*/
+}
+
+.depth-genus .nodelabel.species {
+  
+}
+
+/* Species depth - no labels */
+/*
+
+.depth-species .labels .nodelabel {
+  display: none;
+}
+*/
+
+.depth-species .node.species {
+/*.depth-species #treeroot {*/
+  background-color: black;
+}

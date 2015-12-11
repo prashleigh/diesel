@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Commencement Navigation</title>
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="../../../../style/bootstrap.min.css"> </link>
+  <!-- jQuery -->
+  <script src="../../../../scripts/jquery.js"></script>
+  <script src="../../../../scripts/require.js"></script>
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  <script>
+    
+    // var DSL;
+
+    require.config({
+      baseUrl: '../../../../scripts'
+    });
+
+    $(function () {
+      require(['DSL'], function (dsl) {
+
+        // DSL = dsl;
+
+        $('#dsl-navigation a').click(function () {
+          DSL.message.send('goto', 'all', this.id);
+        });
+      });
+    });
+  </script>
+  <style>
+    body {
+      margin: 5%
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Herbarium Commencement Forum</h1>
+  <div class="list-group" id="tax-nav">
+    <!--
+    <a id="title" class="list-group-item">Opening title
+        slide</a>-->
+
+  </div>
+  
+  <script>
+  
+  
+    var container = $('#tax-nav');
+    
+    // Call when clicked on genus - fill out sub-menu
+    
+    function loadSpecies() {
+      
+    }
+    
+    // Call when clicked on family - fill out sub-menu
+
+    function loadGenus() {
+      
+      var $this = $(this);
+      
+      // Update wall to this family
+      
+      DSL.message.send('tax-update', 'wall', JSON.stringify({ family: $this.data('family') }));
+      //console.log('FGHJFGHFGHFGHJFGHJFGHJFH ' + JSON.stringify({ family: $this.data('family') }));
+      
+      // If children not already loaded ...
+      
+      if (! $this.data('children-loaded')) {
+        
+        // Get child data
+        
+        console.log($this.data('children-url'));
+        
+        // DSL.message.send('tax-update', 'wall', '{"genus":"fff","family":"ttt"}');
+      
+        $.getJSON($this.data('children-url'), function (childFacetData) {
+
+          var genusCount = getFacetListObject(childFacetData.facet_counts.facet_fields.dwc_genus_ssi);
+
+          for (genus in genusCount) {
+            $('<a></a>')
+              .data('children-url', 'http://google.com')
+              .data('genus', genus)
+              .data('children-loaded', false)
+              .click(function (event) {
+                event.stopPropagation();
+                DSL.message.send('tax-update', 
+                                 'wall', 
+                                 JSON.stringify({ 
+                                   family: $this.data('family'), 
+                                   genus: $(this).data('genus') 
+                                 })
+                                ); 
+              })
+              .text(genus)
+              .addClass('list-group-item')
+              .append('<span class="badge">' + genusCount[genus] + '</span>')
+              .appendTo($this);
+          }
+        });
+        
+        $this.data('children-loaded', true);
+      }
+    }
+    
+    function appendFamilyList(data) {
+      container.append(makeFamilyList(data));
+    }
+    
+    function makeFamilyList(data) {
+      
+      var items = [], i,
+          familyCount = getFacetListObject(data.facet_counts.facet_fields.dwc_family_ssi),
+          makeGenusFacetUrl = function (family) {
+            return 'https://repository.library.brown.edu/api/search/?q=ir_collection_id:654 dwc_family_ssi:' 
+              + family
+              + '&facet=true&facet.field=dwc_genus_ssi&callback=?';
+          };
+      
+      for (family in familyCount) {
+        $('<a></a>')
+          .data('children-url', makeGenusFacetUrl(family))
+          .data('children-loaded', false)
+          .data('family', family)
+          .click(loadGenus) // DSL.message.send('tax-update', 'wall', '{"genus":"fff","family":"ttt"}');
+          .text(family)
+          .addClass('list-group-item')
+          .append('<span class="badge">' + familyCount[family] + '</span>')
+          .appendTo(container);
+      };
+    }
+    
+    // Given a URL, return an object with facets and counts
+    
+    function getFacetListObject(facetData) {
+      var i, facetListObject = {};
+      for (i = 0; i < facetData.length; i += 2) {
+        if (facetData[i + 1] > 0)
+          facetListObject[facetData[i]] = facetData[i + 1];
+      }
+      return facetListObject;
+    }
+    
+    $.getJSON('https://repository.library.brown.edu/api/search/?q=ir_collection_id:654&facet=true&facet.field=dwc_family_ssi&callback=?', 
+              appendFamilyList);
+  
+  </script>
+  </body>
+</html>

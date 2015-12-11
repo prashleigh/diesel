@@ -1,0 +1,54 @@
+<html>
+
+<head>
+  <!--<script src="underscore-min.js"></script>-->
+  <!--<script src="d3.v3.min.js"></script>
+  <script src="jsonp.js"></script>-->
+
+  <script data-main="../../../../scripts/main" src="../../../../scripts/require.js"></script>
+  <!--
+  <script src="bdr-herbarium.js"></script>
+  <script src="treemap.js"></script>-->
+  <link href="treemap.css" rel="stylesheet"></link>
+    
+  <script>
+    
+    function makeTreemapDude(treeMapContainer) {
+
+      require(['BDR', 'bdr-herbarium.js', 'treemap.js'], function(bdr, _, treemap) {
+       
+        var tax;
+
+        function getUrlParams () {
+          var parameters = {};
+          window.location.search.slice(1)
+                .split('&')
+                .forEach(function(arg) { 
+                  var argKeyVal = arg.split('='); 
+                  parameters[argKeyVal[0]] = argKeyVal[1];
+                });
+          return parameters;
+        }; 
+
+        tax = getUrlParams();
+
+        // SAMPLE URL: http://localhost/DieSeL/sites/herbarium-class/content/treemap/test.html?genus=Carex&family=Cyperaceae
+        
+        treemap.getTreemapStructureFromQuery({ family: tax.family, genus: tax.genus }, function (treemapData) {
+          treemap.drawTreeMap(treemapData, treeMapContainer);
+        });
+      });
+    }
+    
+  </script>
+</head>
+
+<body>
+  
+    <div id="slideshow" class="highlight" data-timecontainer="seq" data-repeatcount="indefinite"
+      data-timeaction="intrinsic" data-navigation="hash">
+        <div id="treemap" data-timecontainer="par" data-onbegin="makeTreemapDude(this)"></div>
+  </div>
+</body>
+
+</html>

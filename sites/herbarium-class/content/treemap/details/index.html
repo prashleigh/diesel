@@ -1,0 +1,94 @@
+<html>
+  <head>
+    <!--<link rel="stylesheet" type="text/css" href="../style/main.css" />-->
+    <style>
+      
+      body {
+        background: black;
+        color: white;
+        font-family: Helvetica Nueue, sans-serif;
+      }
+      
+      #plant-image {
+        height: 200px;
+        background-repeat: no-repeat;
+        background-size: contain; 
+      }
+      
+      #plant-details-qr {
+        display: none;
+        height: 100px;
+        width: 100px;
+        background: white;
+        border: 20px solid white;
+      }
+      
+      /* THESE STYLES ARE FOR THE WALL 
+      
+      body {
+        background: black;
+        color: white;
+        font-family: sans-serif;
+        font-size: 200%;
+        margin: 0; 
+        padding: 0;
+      }
+      
+      a { 
+        color: white; 
+        decoration: none 
+      }
+      
+      #plant-image {
+        width: 1920px;
+        height: 1080px;
+        position: absolute;
+        top: 0; left: 0;
+        background-repeat: no-repeat;
+        background-size: contain; 
+      }
+      
+      #plant-info {
+        padding: 80px;
+        position: absolute;
+        top: 1080px;
+      }
+      
+      #plant-details-qr {
+      
+        height: 200px;
+        width: 200px;
+        background: white;
+        border: 20px solid white;
+      }
+      */
+    </style>
+    <script type="text/javascript" src="../../../../../scripts/jquery.js"></script>
+    <script type="text/javascript" src="../../../../../scripts/jquery.qrcode.min.js"></script>
+    <script src="EOL.js"></script>
+    
+    <script><!--
+      
+      // URL of the form details/?plantname
+      
+      if (window.location.search.length > 2) { 
+        EOL.search(decodeURIComponent(window.location.search.substr(1)))
+      }
+      
+      // -->
+    </script>
+  </head>
+  <body>
+    <!--<input id="n" type="text" value="tree"></input>-->
+    <!--<button onclick="EOL.search($('#n').val())">Find life!</button>-->
+    <div id="details">
+      <div id="plant-image"></div>
+      <div id="plant-info">
+        <h1 id="plant-name"></h1>
+        <h2 id="plant-aka"></h2>
+        <div id="plant-details-qr"></div>
+        <p id="plant-description"></p>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,95 @@
+/* Site-specific styles go here */
+
+/**
+ load fonts (fonts hosted remotely + locally)
+ */
+
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,600,600italic);
+
+@font-face {
+  font-family: MinionRoman;
+  src: url(fonts/MinionWeb.ttf);
+  font-weight: normal;
+  font-style: normal;
+}
+
+#slideshow * {
+  font-family: MinionRoman;
+}
+
+/* Don't display materials on phone that are for the wall */
+
+.audience *[data-role='wall'] {
+  display: none;
+}
+
+/* Numbers for activity countdown */
+
+.countdown div[data-begin] {
+  color: white; 
+  opacity: .5; 
+  line-height: 3240px; 
+  font-size: 3000px;
+}
+
+/* This isn't working (yet) */
+
+.audience #slideshow *[data-role=audience][smil=active] {
+  width: 100%;
+}
+
+/* Timeline chart line + */
+
+#timeline-count {
+  z-index: 100000;
+}
+
+#timeline-count path {
+  opacity:1;
+  fill:none;
+  stroke: #dd0033;
+  stroke-width:60;
+  stroke-linecap:butt;
+  stroke-linejoin:miter;
+  stroke-opacity:1
+}
+
+.timeline-label {
+  position:absolute;
+  color: #edc7b4;
+  font-size: 10em;
+  z-index: 200000;
+  padding: .25em;
+  background-color: #4f3528;
+  opacity: .6;
+}
+
+.event-blurb {
+  color: white;
+  text-align:left;
+  padding-left:1em;
+  font-size:9.25em;
+  margin-top: 1.5em;
+  margin-right:7%;
+}
+
+/* Mobile audience view */
+
+.audience .fullheight {
+  padding: 0;
+  margin: 0;
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1000px;
+}
+
+#google-form-1, #google-form-2, #google-form-3, #google-form-4 {
+  width: 100%; 
+  overflow: scroll; 
+  position: absolute; 
+  top: 150px;
+  display:none;
+  height: 2000px;
+}
